@@ -249,7 +249,7 @@ Suponiendo que cada respuesta acertada vale dos puntos, hallar la distribución 
 El dominio de la variable $X=$ número de puntos es $D_X=\{0,2,4,6,8,10\}$. Calculamos primero la probabilidad de la variables $Y$= número de preguntas acertadas 
 $D_Y=\{0,1,2,3,4,5\}$
 
-Prbabilidad de acertar $n\in D_Y$  preguntas es 
+Prbabilidad de acertar $n\in D_Y$  preguntas es (para k=3$ opciones)
 $P(Y=n)={5 \choose n}\cdot \left(\frac1k\right)^n\cdot \left(1-\frac1k\right)^{5-n}$
 
 

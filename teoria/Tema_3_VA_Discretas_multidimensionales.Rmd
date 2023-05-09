@@ -1,19 +1,26 @@
 ---
 title: "Tema 3 - Variables Aleatorias discretas multidimensionales"
-author: "Ricardo Alberich, Juan Gabriel Gomila y  Arnau Mir"
-date: ''
+author: "Probabilidad con R y python"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
-  beamer_presentation: default
-  slidy_presentation: default
+  beamer_presentation:
+    includes:
+      in_header: header_pagenrs_complet_ver3_s_normal.tex
+    theme: CambridgeUS
+    toc: yes
   ioslides_presentation:
     css: Mery_style.css
     keep_md: no
     logo: Images/matriz_mov.gif
     widescreen: yes
+linkcolor: green
+classoption: aspectratio=169 
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, comment = NA,out.width = "70%")
+library(reticulate)
+```
 ```
 
 
@@ -374,8 +381,9 @@ Sea $(X,Y)$ una variable bidimensional Notemos que
 
 Se denomina matriz de varianzas-covarianzas y se suele denotar como $\Sigma$ a
 
-$$\Sigma=\pmatrix{Cov(X,X) &  Cov(X,Y)\\Cov(Y,X) & Cov(Y,Y)}=\pmatrix{\sigma_{XX} &  \sigma_{XY}\\ \sigma_{YX} & \sigma_{YY}}=
-\pmatrix{\sigma_{X}^2 &  \sigma_{XY}\\ \sigma_{Y X} & \sigma_{Y}^2}$$
+$$\Sigma= \begin{pmatrix}Cov(X,X) &  Cov(X,Y)\\Cov(Y,X) & Cov(Y,Y) \end{pmatrix}=
+ \begin{pmatrix}\sigma_{XX} &  \sigma_{XY}\\ \sigma_{YX} & \sigma_{YY} \end{pmatrix}=
+ \begin{pmatrix}\sigma_{X}^2 &  \sigma_{XY}\\ \sigma_{Y X} & \sigma_{Y}^2 \end{pmatrix}$$
 
 
 
@@ -394,8 +402,11 @@ Sea $(X,Y)$ una variable bidimensional Notemos que
 
 Se denomina matriz de correlaciones a
 
-$$R=\pmatrix{Cor(X,X) &  Cor(X,Y)\\Cor(Y,X) & Cor(Y,Y)}=\pmatrix{1 &  \rho_{XY}\\ \rho_{Y X} & 1}=
-\pmatrix{1 &  \rho_{XY}\\ \rho_{X Y} & 1}.$$
+$$R=\begin{pmatrix} Cor(X,X) &  Cor(X,Y)\\ 
+Cor(Y,X) & Cor(Y,Y)
+\end{pmatrix}=
+\begin{pmatrix} 1 &  \rho_{XY}\\ \rho_{Y X} & 1\end{pmatrix}=
+\begin{pmatrix} 1 &  \rho_{XY}\\ \rho_{X Y} & 1\end{pmatrix}.$$
 
 
 # Distribuciones multidimensionales
@@ -461,15 +472,20 @@ Si denotamos  $\rho_{ij}=Cor(X_i,X_j)$ para todo $i,j$  en  $1,2,\ldots n$ enton
 
 ## Matrices de varianzas-covarianzas y de correlaciones
 
-$$\Sigma=\pmatrix{ \sigma_{1}^2 & \sigma_{12} & \ldots & \sigma_{1n}\\
- \sigma_{21} & \sigma_{2}^2 & \ldots & \sigma_{2n}\\
- \vdots & \vdots & \ddots& \vdots\\
- \sigma_{n1} & \sigma_{n2} & \ldots & \sigma_{n}^2
- }, \qquad R=\pmatrix{ 1 & \rho_{12} & \ldots & \rho_{1n}\\
- \rho_{21} & 1 & \ldots & \rho_{2n}\\
- \vdots & \vdots & \ddots& \vdots\\
- \rho_{n1} & \rho_{n2} & \ldots & 1
- }.$$
+$$\Sigma= 
+\begin{pmatrix}
+\sigma_{1}^2 & \sigma_{12} & \ldots & \sigma_{1n}\\
+\sigma_{21} & \sigma_{2}^2 & \ldots & \sigma_{2n}\\
+\vdots & \vdots & \ddots& \vdots\\
+\sigma_{n1} & \sigma_{n2} & \ldots & \sigma_{n}^2
+\end{pmatrix}, 
+\qquad
+R=\begin{pmatrix}
+1 & \rho_{12} & \ldots & \rho_{1n}\\
+\rho_{21} & 1 & \ldots & \rho_{2n}\\
+\vdots & \vdots & \ddots& \vdots\\
+\rho_{n1} & \rho_{n2} & \ldots & 1
+\end{pmatrix}.$$
 
 
 

@@ -1,0 +1,528 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{multirow}
+%\PassOptionsToPackage{table,xcdraw}{xcolor}
+%\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{colortbl}
+\usepackage{makecell}
+%\usepackage[spanish,es-nolists]{babel}
+%%\usepackage[spanish]{babel}
+%% change fontsize of R code
+%%colorines
+%\usepackage{amsmath,color,array,booktabs,algorithm2e}
+%\newcommand\blue[1]{\textcolor{blue}{#1}}
+%\newcommand\red[1]{\textcolor{red}{#1}}
+
+%% change fontsize of output
+%\let\oldverbatim\verbatim
+%\let\endoldverbatim\endverbatim
+%\renewenvironment{verbatim}{\scriptsize\oldverbatim}{\endoldverbatim}
+%\usepackage{multirow}
+%\PassOptionsToPackage{table,xcdraw}{xcolor}
+%\usepackage[table,xcdraw]{xcolor}
+%\usepackage{colortbl}
+
+\usepackage{makecell}
+ \usepackage{booktabs}
+ \usepackage{adjustbox}
+ \usepackage{amsmath,color,array,booktabs,algorithm2e}
+ \definecolor{LightBlue}{RGB}{173,216,230}
+ \newcommand\blue[1]{\textcolor{blue}{#1}}
+\newcommand\red[1]{\textcolor{red}{#1}}
+\newcommand\green[1]{\textcolor{green}{#1}}
+ %\setbeamertemplate{navigation symbols}{}
+% \setbeamertemplate{footline}[page number]
+ \usepackage{mathdots}
+\usepackage{yhmath}
+\usepackage{mathdots}
+\usepackage{MnSymbol,amsmath}
+%\renewcommand{\contentsname}{Índice}
+%\renewcommand{\chaptername}{Parte}
+%\renewcommand{\sectionname}{Lección}
+%%%%%%%%%%
+
+%\usepackage[spanish,es-nolists]{babel}
+%%\usepackage[spanish]{babel}
+%% change fontsize of R code
+%%colorines
+%\usepackage{amsmath,color,array,booktabs,algorithm2e}
+%\newcommand\blue[1]{\textcolor{blue}{#1}}
+%\newcommand\red[1]{\textcolor{red}{#1}}
+
+%% change fontsize of output
+%\let\oldverbatim\verbatim
+%\let\endoldverbatim\endverbatim
+%\renewenvironment{verbatim}{\tiny\oldverbatim}{\endoldverbatim}
+%\usepackage[table,xcdraw]{xcolor}
+
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={SOLUCIONES: Taller Evaluable 1. Entrega problemas. Probabilidades básico},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{SOLUCIONES: Taller Evaluable 1. Entrega problemas. Probabilidades
+básico}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{problemas}{%
+\section{Problemas}\label{problemas}}
+
+\hypertarget{problema-1}{%
+\subsection{\texorpdfstring{Problema 1
+(\textbf{1 punto.})}{Problema 1 ()}}\label{problema-1}}
+
+En una urna, hay 5 bolas del mismo tamaño y peso, de los cuales, 3 son
+rojas y 2 son azules. ¿De cuántas maneras se pueden extraer los colores
+sacando de una en una a una las bolas de la urna?
+
+\hypertarget{soluciuxf3n}{%
+\subsubsection{Solución}\label{soluciuxf3n}}
+
+Podemos calcular con permutaciones de dos elementos con repeticiones 3,2
+de longitud 5.
+
+\[
+PR_{3,2}^5=\binom{5}{3 , 2}=\frac{5!}{3!\cdot 2!}.
+\]
+
+También se puede hacer con combinaciones.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{choose}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 10
+\end{verbatim}
+
+\hypertarget{problema-2}{%
+\subsection{\texorpdfstring{Problema 2
+(\textbf{2 puntos.})}{Problema 2 ()}}\label{problema-2}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\item
+  Cuantos resultados posibles tiene el euromillones: son 5 números
+  enteros del 1 al 50 y dos estrellas números enteros del 1 al 12
+  \footnote{Sin orden en ambos casos.}.
+\item
+  Dado un sorteo del euromillones hemos obtenido de números:
+  46,47,48,49,50 y de estrellas 1,2. De todos los resultados posibles
+  ¿cuántos tienen n=1,2,3,4 aciertos en los números y un acierto en la
+  estrella?
+\end{enumerate}
+
+\hypertarget{soluciuxf3n-1}{%
+\subsubsection{Solución}\label{soluciuxf3n-1}}
+
+\textbf{Apartado a.}
+
+\[
+\binom{50}{5}\cdot \binom{12}{2} =
+\frac{50!}{(50-5)!\cdot 5!}\cdot 
+\frac{12!}{(12-2)!\cdot 2!}=
+2118760\cdot 66=
+139838160.
+\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{choose}\NormalTok{(}\DecValTok{50}\NormalTok{,}\DecValTok{5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2118760
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{choose}\NormalTok{(}\DecValTok{12}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 66
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{choose}\NormalTok{(}\DecValTok{50}\NormalTok{,}\DecValTok{5}\NormalTok{)}\SpecialCharTok{*}\FunctionTok{choose}\NormalTok{(}\DecValTok{12}\NormalTok{,}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 139838160
+\end{verbatim}
+
+\textbf{Apartado b.}
+
+Tenemos \(n=1,2,3,4,5\) aciertos estrelas 50 bolas y 1 acierto en la
+estrella
+
+La idea es de los 5 números que han salido elijo \(n\) para acertar son
+\(\binom{5}{n}\), para cada elección de \(n\) multiplico por los casos
+de los \(5-n\) restantes los tengo que elegir de los que no han salido
+que son \(50-5\) que son \(\binom{50-5}{5-n}\). De forma similar la para
+las estrellas tengo \(\binom{2}{1}\cdot \binom{11}{1}\) casos. El
+producto de estas cantidades me dará en e resultado para \(n=1,2,3,4,5\)
+aciertos en las bolas y 1 ewn las estrellas
+
+\[
+\binom{5}{n}\cdot \binom{50-5}{5-n}\cdot \binom{2}{1}\cdot \binom{11}{1}.
+\]
+
+Lo podemos calcular manualmente (con calculadora es pesado) o con la
+siguiente función de R
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{loteria}\OtherTok{=}\ControlFlowTok{function}\NormalTok{(n)\{}
+\FunctionTok{choose}\NormalTok{(}\DecValTok{5}\NormalTok{,n)}\SpecialCharTok{*}\FunctionTok{choose}\NormalTok{(}\DecValTok{45}\NormalTok{,}\DecValTok{5}\SpecialCharTok{{-}}\NormalTok{n)}\SpecialCharTok{*}\FunctionTok{choose}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{1}\NormalTok{)}\SpecialCharTok{*}\FunctionTok{choose}\NormalTok{(}\DecValTok{11}\NormalTok{,}\DecValTok{1}\NormalTok{)}
+\NormalTok{\}}
+\NormalTok{Casos}\OtherTok{=}\FunctionTok{loteria}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{))}
+\NormalTok{Aciertos}\OtherTok{=}\FunctionTok{paste}\NormalTok{(}\StringTok{"Aciertos "}\NormalTok{,}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{),}\StringTok{"bolas y  1 estrella = "}\NormalTok{)}
+\NormalTok{casos}\OtherTok{=}\FunctionTok{data.frame}\NormalTok{(Aciertos,Casos)}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(casos,}\AttributeTok{format=}\StringTok{"latex"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{tabular}{l|r}
+\hline
+Aciertos & Casos\\
+\hline
+Aciertos  1 bolas y  1 estrella = & 16389450\\
+\hline
+Aciertos  2 bolas y  1 estrella = & 3121800\\
+\hline
+Aciertos  3 bolas y  1 estrella = & 217800\\
+\hline
+Aciertos  4 bolas y  1 estrella = & 4950\\
+\hline
+Aciertos  5 bolas y  1 estrella = & 22\\
+\hline
+\end{tabular}
+
+\hypertarget{problema-3}{%
+\subsection{\texorpdfstring{Problema 3
+(\textbf{1 punto.})}{Problema 3 ()}}\label{problema-3}}
+
+Lanzamos un dado de 12 caras numeradas con enteros del 1 al 12 sobre una
+mesa plana. Observamos el número superior del dado. Calcular la
+probabilidad de que salga mayor que 8 si el resultado es par.
+
+\hypertarget{soluciuxf3n-2}{%
+\subsubsection{Solución}\label{soluciuxf3n-2}}
+
+La probabilidad de obtener un valor e de este dado es
+\(P(\mbox{Salir} k ,\mbox{en el dado})=\frac{1}{12}.\) para
+\(k=1,2,3,\ldots,12.\)
+
+Nos piden \(A_{> 8}=\{9,10,11,12\}\) condicionado a
+\(A_{\mbox{par}}={2,4,6,8,10,12}\).
+
+Por un lado tenemos que \(P(A_{> 8})=\frac{4}{12}\) y
+\(P(A_{\mbox{par}})=\frac{6}{12}\)
+
+Cáculemos lo que se pide
+
+\[
+P\left(A_{> 8}| A_{\mbox{par}}\right)=
+\frac{ P\left(A_{> 8}\cap A_{\mbox{par}}\right)}{P\left(A_{\mbox{par}}\right)}=
+\frac{\frac{4}{12}}{\frac{6}{12}}=\frac{4}{6}=\frac{2}{3}.
+\]
+
+\hypertarget{problema-4}{%
+\subsection{\texorpdfstring{Problema 4
+(\textbf{2 puntos.})}{Problema 4 ()}}\label{problema-4}}
+
+Lanzamos una moneda con probabilidad de cara \(p=\frac{1}{2}\) hasta que
+sale cara dos veces o bien la hemos lanzamos 5 veces, lo primero que
+ocurra.
+
+Consideremos el experimento con resultados experimentales contar el
+número de tiradas
+
+Se pide:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  Describir
+  adecuadamente\footnote{Elegir alguna codificación para definir con una lista /tabla el espacio muestral de sucesos $\Omega$.}
+  el espacio muestral de todos los sucesos posibles del experimento.
+\item
+  Si \(A_k\) es el suceso hemos tirado la moneda \(K\) veces calcular
+  \(P(A_k)\) para todos casos posibles.
+\end{enumerate}
+
+\hypertarget{soluciuxf3n-3}{%
+\subsubsection{Solución}\label{soluciuxf3n-3}}
+
+\textbf{Apartado a.} Denotemos por \(C\) el suceso cara y por \(+\) el
+suceso cruz. Representemos cada sucesos del experimento por una cadena
+ordenada de caras y cruces hasta que se obtnegan dos \(C\) o lleguemos a
+5 intentos. Los resultados posibles son (16 casos):
+
+\(\Omega=\{ CC, +CC,C+C, ++CC,+C+C,C++C, +++CC,++C+C,+C++C,C+++C, ++++C,+++C+,++C++,+C+++,C++++ +++++\}\)
+
+\textbf{Apartado b.}
+
+\[
+\begin{aligned}
+P(A_2) & = P(\{CC\}= \left(\frac{1}{2}\right)^2=\frac{1}{4} \\
+P(A_3) & = P(\{+CC,C+C\})=\left(\frac{1}{2}\right)^3+\left(\frac{1}{2}\right)^3=2\cdot \frac{1}{8}=\frac{1}{4} \\
+P(A_4) & = P(\{++CC,+C+C,C++C,\})=\cdots=3\cdot \left(\frac{1}{2}\right)^4= \frac{3}{16}. \\
+P(A_5) & = P(
+(
+\{
++++CC,++C+C,+C++C,C+++C,
+++++C,+++C+,++C++,+C+++,C++++,
++++++
+\}
+)\\
+  & =  10\cdot \left(\frac{1}{2}\right)^5=\frac{10}{32} \\
+\end{aligned}
+\]
+
+No se pedía pero efectivamente la suma de las probabilidades es 1:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{/}\DecValTok{4}\NormalTok{,}\DecValTok{1}\SpecialCharTok{/}\DecValTok{4}\NormalTok{,}\DecValTok{3}\SpecialCharTok{/}\DecValTok{16}\NormalTok{,}\DecValTok{10}\SpecialCharTok{/}\DecValTok{32}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\hypertarget{problema-5}{%
+\subsection{\texorpdfstring{Problema 5
+(\textbf{2 puntos.})}{Problema 5 ()}}\label{problema-5}}
+
+Tres jugadores \(A,B\) y \(C\) juegan rondas de un juego de cartas. En
+cada ronda puede ganar con igual probabilidad cualquiera de los tres
+jugadores y el ganador de cada ronda es independientes del anterior.
+Gana el juego el primero que consiga ganar tres rondas. Si resulta que
+\(A\) gana la primera y la tercera ronda y \(B\) gana la segunda. ¿Cual
+es la probabilidad de que \(C\) gane el juego
+
+\hypertarget{soluciones}{%
+\subsubsection{Soluciones}\label{soluciones}}
+
+Representemos por \(A\), \(B\) y \(C\) que gana una ronda el jugado
+\(A\), \(B\) o \(C\), representemos las partidas ya jugadas en la
+siguiente tabla en las siguiente tabla:
+
+\begin{tabular}{|l||l|l|l|}
+\hline
+Ronda & 1 & 2 & 3\\\hline\hline
+Gana A & A & B & A\\ \hline
+\end{tabular}
+
+Para que gane \(C\) se tiene que dar alguno de los resultados
+siguientes:
+
+\begin{tabular}{|l||l|l|l|l|l|}
+\hline
+Ronda & 4 & 5 & 6 & 7 & prob \\\hline\hline
+Caso 1 Gana C & C & C & C & -  & $\left(\frac{1}{3}\right)^3$\\ \hline
+Caso 2 Gana C & B & C & C & C  & $\left(\frac{1}{3}\right)^4$\\ \hline
+Caso 3 Gana C & C & B & C & C  & $\left(\frac{1}{3}\right)^4$\\ \hline
+Caso 4 Gana C & C & C & B & C  & $\left(\frac{1}{3}\right)^4$\\ \hline
+\\\hline
+\end{tabular}
+
+\[P(\mbox{Gana C})= P(\{CCC,BCCC,CBCC,CCBC\})=
+\left(\frac{1}{3}\right)^3 + 3\cdot \left(\frac{1}{3}\right)^4=\frac{2}{3}.\]
+
+\hypertarget{problema-6}{%
+\subsection{\texorpdfstring{Problema 6
+(\textbf{1 punto.})}{Problema 6 ()}}\label{problema-6}}
+
+Sean \(A\) y \(B\) dos sucesos disjuntos e independientes. Demostrar o
+justificar si cada una de las siguientes afirmaciones son correctas:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(P(B)\neq 0 \Rightarrow P(A|B)> P(B)\).
+\item
+  \(P(A)\neq 0 \Rightarrow P(B|A)=0\).
+\item
+  \(P(A\cup B)< P(A)+P(B)\).
+\item
+  \(P(A)=P(B)=0\).
+\end{enumerate}
+
+\hypertarget{soluciuxf3n-4}{%
+\subsubsection{Solución}\label{soluciuxf3n-4}}
+
+La afirmación a. es falsa ya que al ser disjuntos \(P(A\cap B)=0\) por
+lo que \(P(A|B)=\frac{P(A\cap B)}{P(B)}=0>P(B)\neq 0\) ¡Contradición!.
+La afirmación b. es cierta siempre independientemente del valor de
+\(P(A)\) ya que al ser disjuntos \(P(B\cap A)=0\) por lo que
+\(P(B|A)=\frac{P(B\cap A)}{P(A)}=0\). La afirmación c.~es falsa ya que
+\(P(A\cup B)=P(A)+P(B)-P(A\cap B)=P(A)+P(B)-P(\emptyset)=P(A)+P(B)\)
+¡Contradición! con \(P(A\cup B)< P(A)+P(B)\). La afirmación d.~es falsa
+ya que si \(A=\Omega\) suceso seguro y \(B=\emptyset\) suceso imposibles
+se cumple que son disjuntos \(A\cap B=\emptyset\) y que
+\(P(A\cap B)=P(\emptyset)=P(A)\cdot P(B)=1\cdot 0=0\) !Contraejemplo¡
+
+\hypertarget{problema-7}{%
+\subsection{\texorpdfstring{Problema 7
+(\textbf{1 punto.})}{Problema 7 ()}}\label{problema-7}}
+
+Sean \(A\), \(B\) y \(C\) tres sucesos tales que \(A\) es independiente
+de \(B^c\cap C\) y de \(B\cap C\). Demostrar o justificar si cada una de
+las siguientes afirmaciones son correctas:
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi}.}
+\tightlist
+\item
+  \(A,B\) y \(C\) son independientes.
+\item
+  \(A\) es independiente de \(C\).
+\item
+  \(A\) es independiente de \(B\)
+\end{enumerate}
+
+\hypertarget{soluciuxf3n-5}{%
+\subsubsection{Solución}\label{soluciuxf3n-5}}
+
+Aquí partimos de que si la afirmación (a.) es cierta entonces lo son
+(b.) y (c.) pues la independencia de una familia de tres sucesos es
+equivalente que la probabilidad de la intersección de los tres es igual
+al producto de las probabilidades así como todas las intersecciones dos
+a dos.
+
+La afirmación es genérica así que vamos a buscar tres sucesos tales que
+
+\(P(A\cap (B^c\cap C)=P(A)\cdot P(B^c\cap C)\) y
+\(P(A\cap (B\cap C)=P(A)\cdot P(B\cap C)\).
+
+Sea \(\Omega=\{1,2,3,4,5,6,7,8,9\}\) talqeu elos sucesos elementales
+sean equiprobables \(P(\{k\})=\frac19.\)
+
+Consideremos los sucesos
+\(A=\{2,3,4\}, C=\{4,5,6\}, B=\{3,4,5,6,7,8\}\); obviamente
+\(P(A)= \frac39\), \(P(B)=\frac{6}{9}\) y \(P(C)=\frac{3}{9}.\)
+
+\(P(A\cap (B^c\cap C)=P(\{3\})\not = P(A)\cdot P(B^c\cap C)= \frac13\cdot P(\{3,7,8\})=\frac13\cdot \frac13=\frac19\)
+
+Entonces
+
+\(P(A)\cdot P(B)\cdot P(C)=\frac13\cdot \frac13\cdot \frac19\neq P(A\cap B\cap C)=P(\{4\})=\frac19\)
+No son una familia de 3 sucesos independientes sucesos
+
+\(P(A\cap (B^c\cap C)=P(\{1\})=1/2\);
+\(P(A\cap (B\cap C)=P(\emptyset)=0\)
+
+\end{document}
