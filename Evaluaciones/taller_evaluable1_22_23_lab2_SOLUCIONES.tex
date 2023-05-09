@@ -183,7 +183,7 @@ Podemos calcular con permutaciones de dos elementos con repeticiones 3,2
 de longitud 5.
 
 \[
-PR_{3,2}^5=\binom{5}{3 , 2}=\frac{5!}{3!\cdot 2!}.
+PR_5^{3,2}=\binom{5}{3,2}=\frac{5!}{3!\cdot 2!}.
 \]
 
 También se puede hacer con combinaciones.
@@ -356,7 +356,7 @@ Se pide:
   adecuadamente\footnote{Elegir alguna codificación para definir con una lista /tabla el espacio muestral de sucesos $\Omega$.}
   el espacio muestral de todos los sucesos posibles del experimento.
 \item
-  Si \(A_k\) es el suceso hemos tirado la moneda \(K\) veces calcular
+  Si \(A_k\) es el suceso hemos tirado la moneda \(k\) veces calcular
   \(P(A_k)\) para todos casos posibles.
 \end{enumerate}
 
@@ -503,26 +503,58 @@ equivalente que la probabilidad de la intersección de los tres es igual
 al producto de las probabilidades así como todas las intersecciones dos
 a dos.
 
-La afirmación es genérica así que vamos a buscar tres sucesos tales que
+La afirmación (b.) es cierta
+
+\[
+\begin{aligned}
+P(A\cap B)&=P((A\cap(C\cap B^c))\cup (A\cap (C\cap B))\\
+ &=P((A\cap(C\cap B^c))+P(A\cap (C\cap B))-P((A\cap(C\cap B^c))\cap (A\cap (C\cap B))\\
+ &=P(a)\cdot P(C\cap B^c)+P(A)\cdot  P(C\cap B))-P(\emptyset)\\
+ &=P(A)\cdot (P(C\cap B^c)+P(C\cap B))\\
+ &  =  P(A)\cdot P(C).
+\end{aligned}
+\]
+
+Luego vamos a ver que (c). es falsa así (a) también será falsa:
+
+Vamos a buscar tres sucesos tales que
 
 \(P(A\cap (B^c\cap C)=P(A)\cdot P(B^c\cap C)\) y
 \(P(A\cap (B\cap C)=P(A)\cdot P(B\cap C)\).
 
-Sea \(\Omega=\{1,2,3,4,5,6,7,8,9\}\) talqeu elos sucesos elementales
-sean equiprobables \(P(\{k\})=\frac19.\)
+Consideremos \(\Omega=\{k\in \mathbb{N}| 0< k< 40\}\) un espacio
+muestral tal que todos los valores sean equiprobables
 
-Consideremos los sucesos
-\(A=\{2,3,4\}, C=\{4,5,6\}, B=\{3,4,5,6,7,8\}\); obviamente
-\(P(A)= \frac39\), \(P(B)=\frac{6}{9}\) y \(P(C)=\frac{3}{9}.\)
+Consideremos los siguientes sucesos
 
-\(P(A\cap (B^c\cap C)=P(\{3\})\not = P(A)\cdot P(B^c\cap C)= \frac13\cdot P(\{3,7,8\})=\frac13\cdot \frac13=\frac19\)
+\[
+\begin{aligned}
+A & = \{1,2,3,4,5,6,7,8,9,10,21,22,23,24,25,26,27,28,29,30\}\\
+B & = \{6,7,8,9,10,11,12,13,14,15,31,32,33,34,35\},\\
+C & = \{1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20\}.
+\end{aligned}
+\]
 
 Entonces
 
-\(P(A)\cdot P(B)\cdot P(C)=\frac13\cdot \frac13\cdot \frac19\neq P(A\cap B\cap C)=P(\{4\})=\frac19\)
-No son una familia de 3 sucesos independientes sucesos
+\[
+\begin{aligned}
+P(A) & =& \frac{20}{40}=\frac12\\
+P(B) & =& \frac{15}{40}=\frac38\\
+P(B^c\cap C) & =& \frac{10}{40}=\frac14\\
+P(A\cap B) & =& \frac{5}{40}=\frac18\\
+P(A\cap B^c\cap C) & =& \frac{5}{40}=\frac18\\
+P(A\cap B\cap C) & =& \frac{5}{40}=\frac18
+\end{aligned}
+\] luego
 
-\(P(A\cap (B^c\cap C)=P(\{1\})=1/2\);
-\(P(A\cap (B\cap C)=P(\emptyset)=0\)
+\[P(A) \cdot P(B^c\cap C)=\frac12\cdot\frac14=\frac18=P(A\cap B^c\cap C).\]
+\[P(A) \cdot P(B\cap C)=\frac12\cdot\frac14=\frac18=P(A\cap B\cap C).\]
+
+\ldots{} pero
+
+\[P(A\cap C)=\frac{15}{40}=\frac38\neq P(A)\cdot P(C)=\frac12\cdot \frac12=\frac14.\]
+
+En definitiva hemos obtenido un contraejemplo para la opción (c).
 
 \end{document}
