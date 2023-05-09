@@ -88,7 +88,9 @@ choose(5,n)*choose(45,5-n)*choose(2,1)*choose(11,1)
 Casos=loteria(c(1,2,3,4,5))
 Aciertos=paste("Aciertos ",c(1,2,3,4,5),"bolas y  1 estrella = ")
 casos=data.frame(Aciertos,Casos)
-knitr::kable(casos,format="latex")
+
+library(kableExtra)
+knitr::kable(casos,format="latex") %>% kable_styling(position="center", latex_options = ) 
 ```
 
 

@@ -146,6 +146,20 @@
 %\renewenvironment{verbatim}{\tiny\oldverbatim}{\endoldverbatim}
 %\usepackage[table,xcdraw]{xcolor}
 
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{float}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
@@ -286,10 +300,14 @@ siguiente función de R
 \NormalTok{Casos}\OtherTok{=}\FunctionTok{loteria}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{))}
 \NormalTok{Aciertos}\OtherTok{=}\FunctionTok{paste}\NormalTok{(}\StringTok{"Aciertos "}\NormalTok{,}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{),}\StringTok{"bolas y  1 estrella = "}\NormalTok{)}
 \NormalTok{casos}\OtherTok{=}\FunctionTok{data.frame}\NormalTok{(Aciertos,Casos)}
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(casos,}\AttributeTok{format=}\StringTok{"latex"}\NormalTok{)}
+
+\FunctionTok{library}\NormalTok{(kableExtra)}
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{kable}\NormalTok{(casos,}\AttributeTok{format=}\StringTok{"latex"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{kable\_styling}\NormalTok{(}\AttributeTok{position=}\StringTok{"center"}\NormalTok{, }\AttributeTok{latex\_options =}\NormalTok{ ) }
 \end{Highlighting}
 \end{Shaded}
 
+\begin{table}
+\centering
 \begin{tabular}{l|r}
 \hline
 Aciertos & Casos\\
@@ -305,6 +323,7 @@ Aciertos  4 bolas y  1 estrella = & 4950\\
 Aciertos  5 bolas y  1 estrella = & 22\\
 \hline
 \end{tabular}
+\end{table}
 
 \hypertarget{problema-3}{%
 \subsection{\texorpdfstring{Problema 3
