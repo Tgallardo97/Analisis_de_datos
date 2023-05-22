@@ -1,6 +1,6 @@
 ---
 title: "Soluciones ejercicos variables aleatorias discretas"
-author: ' Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir'
+author: ''
 date: ''
 output:
   beamer_presentation:

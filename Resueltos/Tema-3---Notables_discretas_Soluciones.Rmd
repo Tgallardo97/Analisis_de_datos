@@ -258,7 +258,7 @@ Nos piden  $P(X_{\frac13}=0)$ y que $P\left(X_{\frac{1}{3}}\geq 2 \right)$.
 Sabemos que $P(X_{\frac13}=x)=\frac{1^x}{x!} e^{-1}$ para $x=0,1,2,\ldots.$
 
 
-Así que $P(X_{\frac13}=0)=\frac{(1)^0}{0!} e^{-1}=e^{-1}=`r exp(-1)`.$
+Así que $P\left(X_{\frac13}=0\right)=\frac{(1)^0}{0!} e^{-1}=e^{-1}=`r exp(-1)`.$
 
 
 
@@ -332,7 +332,7 @@ semanas?
 ### Solución 
 
 
-$X_t$ número de motos vendidas en $t$ semanas eres un proceso poisson $Po(\lambda \cdot t=1\cdot=t)$. Así que $X_t$ es una $Po(t)$.
+$X_t$ número de motos vendidas en $t$ semanas eres un proceso poisson $Po(\lambda \cdot t=1\cdot t=t)$. Así que $X_t$ es una $Po(t)$.
 
 **Apartado 1.** Nos piden $P(X_2=3)$ será una $Po(\lambda=2)=\frac{2^3}{3!}\cdot e^{-2}=`r 2^3/factorial(3)*exp(-2)`$. 
 
@@ -355,22 +355,21 @@ Como máximo 3 es $P(X_2\leq 3)=$, con R
 ppois(3,lambda=2)
 ```
 
-**Apartado 3.** La variable $T$ tiempo entre dos ventas consecutivas  de  este proceso poisson es una v.a. $Exp(\lambda=1)$. Ahora  nos piden $P(X>2)=1-P(X\geq 2)=1-\left(1-e^{-1\cdot 2}\right)=`r 1-(1-exp(-2))`.$
+**Apartado 3.** La variable $T$ tiempo entre dos ventas consecutivas  de  este proceso poisson es una v.a. $Exp(\lambda=1)$. Ahora  nos piden 3 periodos de 2 semanas en total 6 semanas $P(X>5)=1-P(X\geq 6)=1-\left(1-e^{-1\cdot 6}\right)=`r 1-(1-exp(-6))`.$
 
 Con R
 
 ```{r}
-1-pexp(2,rate=1)
-pexp(2,rate=1,lower.tail=FALSE)
+1-pexp(6,rate=1)
+pexp(6,rate=1,lower.tail=FALSE)
 ```
 
-O también es $P(X_2=0)=\frac{2^0}{0!}\cdot \exp{-2}=`r exp(-2)`.$
+O también es $P(X_6=0)=\frac{6^0}{0!}\cdot \exp{-6}=`r exp(-6)`.$
 
 ```{r}
-exp(-2)
-dpois(0,lambda=2)
+exp(-6)
+dpois(0,lambda=6)
 ```
-
 
 
 ## Problema `r num=num+1;num`.

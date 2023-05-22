@@ -1,0 +1,1014 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={SOLUCIONES: Ejercicios Tema 3 - Distribuciones Notables: más distribuciones notables},
+  pdfauthor={Otras distribuciones notables},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+\title{SOLUCIONES: Ejercicios Tema 3 - Distribuciones Notables: más
+distribuciones notables}
+\author{Otras distribuciones notables}
+\date{22 mayo, 2023}
+
+\begin{document}
+\maketitle
+
+{
+\hypersetup{linkcolor=blue}
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{distribuciones-notables-muxe1s-distribuciones-notables.}{%
+\section{Distribuciones Notables: más distribuciones
+notables.}\label{distribuciones-notables-muxe1s-distribuciones-notables.}}
+
+\hypertarget{ley-de-bendford}{%
+\subsection{\texorpdfstring{\textbf{Ley de
+Bendford}}{Ley de Bendford}}\label{ley-de-bendford}}
+
+La ley de Benford es una curiosa distribución de probabilidad que suele
+aparecer en la distribución del primer dígito de las cantidades
+registradas en contabilidades y en observaciones científicas o datos
+numéricos. La variable \(X\) sigue una distribución discreta Benford con
+dominio \(D_X=\{1,2,3,4,5,7,8,9\}\) son 9 dígitos (se elimina el cero) y
+su función de probabilidad es (donde \(\log\) es el logaritmo en base
+10) \[
+P_X(x)=P(X=x)=\log(x+1)-\log(x).
+\]
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \tightlist
+  \item
+    Calcular la media y la varianza de \(X\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Calcular la función de distribución de \(X\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    ¿Cuál es el dígito más frecuente (moda)?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Construid con R las funciones de probabilidad y de distribución de
+    \(X\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{4}
+  \tightlist
+  \item
+    Dibujar con R las funciones del apartado anterior.
+  \end{enumerate}
+\end{itemize}
+
+\hypertarget{soluciuxf3n}{%
+\subsubsection{Solución}\label{soluciuxf3n}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  Recordad que en R \texttt{log10} es el logartimo en base 10
+\end{enumerate}
+
+Como \(\log(d+1)-\log(d)=\log(\frac{d+1}{d})\). Podemos implementar la
+función de probabilidad de Bendford con el siguiente código R
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dBendford }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(x)\{}
+  \FunctionTok{sapply}\NormalTok{(x, }\AttributeTok{FUN=}\ControlFlowTok{function}\NormalTok{(x1)}
+\NormalTok{  \{}
+    \ControlFlowTok{if}\NormalTok{ (x1 }\SpecialCharTok{\%in\%} \DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{)}
+\NormalTok{    \{}\FunctionTok{log10}\NormalTok{(x1}\SpecialCharTok{+}\DecValTok{1}\NormalTok{)}\SpecialCharTok{{-}}\FunctionTok{log10}\NormalTok{(x1)\}}
+    \ControlFlowTok{else}\NormalTok{\{}\DecValTok{0}\NormalTok{\}}
+\NormalTok{  \})}
+\NormalTok{\}}
+
+\FunctionTok{dBendford}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.30103000 0.17609126 0.12493874 0.09691001 0.07918125 0.06694679 0.05799195
+## [8] 0.05115252 0.04575749
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(}\FunctionTok{dBendford}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+Así la media \(\mu\) será
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mu}\OtherTok{=}\FunctionTok{sum}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{)}\SpecialCharTok{*}\FunctionTok{dBendford}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{))}
+\NormalTok{mu}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 3.440237
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sumx2}\OtherTok{=}\FunctionTok{sum}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{)}\SpecialCharTok{\^{}}\DecValTok{2}\SpecialCharTok{*}\FunctionTok{dBendford}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{))}
+\NormalTok{sumx2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 17.89174
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sigma2}\OtherTok{=}\NormalTok{sumx2}\SpecialCharTok{{-}}\NormalTok{mu}\SpecialCharTok{\^{}}\DecValTok{2}
+\NormalTok{sigma2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 6.056513
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sigma}\OtherTok{=}\FunctionTok{sqrt}\NormalTok{(sigma2)}
+\NormalTok{sigma}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.460998
+\end{verbatim}
+
+En resumen La variable de Bendford tiene dominio
+\(D_X=\{1,2,3,4,5,6,7,8,9\}\) y función de probabilidad
+
+\[
+P_X(x)=P(X=x)=\left\{
+\begin{array}{ll}
+0.30103 &  \mbox{si } x=1\\
+0.1760913 &  \mbox{si } x=2\\
+0.1249387 &  \mbox{si } x=3\\
+0.09691 &  \mbox{si } x=4\\
+0.0791812 &  \mbox{si } x=5\\
+0.0669468 &  \mbox{si } x=6\\
+0.0579919 &  \mbox{si } x=7\\
+0.0511525 &  \mbox{si } x=8\\
+0.0457575 &  \mbox{si } x=9\\
+0 & \mbox{ en otro caso}
+\end{array}
+\right.
+\]
+
+\begin{eqnarray*}
+E(X) &=& \sum_{k=1}^9 x\cdot P_X(x)= 1 \cdot 0.30103+ 2 \cdot 0.1760913+3 \cdot 0.1249387+4 \cdot 0.09691+5 \cdot 0.0791812\\
+     &+&  6 \cdot 0.0669468+ 7 \cdot 0.0579919+ 8 \cdot 0.0511525+9 \cdot 0.0457575\\
+     &=& 3.440237
+\end{eqnarray*}
+
+\begin{eqnarray*}
+E(X^2) &=& \sum_{k=1}^9 x^2\cdot P_X(x)= 1 \cdot 0.30103+ 4 \cdot 0.1760913+9 \cdot 0.1249387+ 16 \cdot 0.09691+25 \cdot 0.0791812\\
+     &+&  36 \cdot 0.0669468+ 49 \cdot 0.0579919+ 64 \cdot 0.0511525+81 \cdot 0.0457575\\
+     &=& 3.440237
+\end{eqnarray*}
+
+Y por último \(Var(X)=E(X^2)-(E(X))^2=17.891743-(3.440237)^2=6.0565126\)
+y la desviación típica es \(\sqrt{Var(X)}=2.4609983.\)
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Ahora nos piden \(F_X(x)=P(X\leq x)\). Con R es
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pBendford}\OtherTok{=}\ControlFlowTok{function}\NormalTok{(x)\{}
+  \FunctionTok{sapply}\NormalTok{(x,}\AttributeTok{FUN=}\ControlFlowTok{function}\NormalTok{(x)\{}
+\NormalTok{  probs}\OtherTok{=}\FunctionTok{cumsum}\NormalTok{(}\FunctionTok{dBendford}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{))}
+\NormalTok{  xfloor}\OtherTok{=}\FunctionTok{floor}\NormalTok{(x)}
+  \ControlFlowTok{if}\NormalTok{(xfloor}\SpecialCharTok{\textless{}}\DecValTok{1}\NormalTok{)\{}\DecValTok{0}\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}\ControlFlowTok{if}\NormalTok{(xfloor}\SpecialCharTok{\textgreater{}}\DecValTok{8}\NormalTok{) \{}\DecValTok{1}\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{probs[xfloor]\}\}}
+\NormalTok{\})}
+\NormalTok{\}}
+
+\FunctionTok{pBendford}\NormalTok{(}\DecValTok{0}\SpecialCharTok{:}\DecValTok{9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 0.0000000 0.3010300 0.4771213 0.6020600 0.6989700 0.7781513 0.8450980
+##  [8] 0.9030900 0.9542425 1.0000000
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pBendford}\NormalTok{(}\DecValTok{0}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pBendford}\NormalTok{(}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+Así tenemos que
+
+\[
+F_X(x)=P(X\leq x)=\left\{
+\begin{array}{ll}
+0 & \mbox{si } x<1\\
+0.30103 & \mbox{si } 1\leq x < 2\\
+0.4771213 & \mbox{si } 2\leq x < 3\\
+0.60206 & \mbox{si } 3\leq x < 4\\
+0.69897 & \mbox{si } 4\leq x < 5\\
+0.7781513 & \mbox{si } 5\leq x < 6\\
+0.845098 & \mbox{si } 6\leq x < 7\\
+0.90309 & \mbox{si } 7\leq x < 8\\
+0.9542425 & \mbox{si } 8\leq x < 9\\
+1  & \mbox{si } 9\leq x
+\end{array}
+\right.
+\] c) EL dígito más frecuente es el 1
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{dBendford}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.30103000 0.17609126 0.12493874 0.09691001 0.07918125 0.06694679 0.05799195
+## [8] 0.05115252 0.04575749
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{max}\NormalTok{(}\FunctionTok{dBendford}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0.30103
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{which.max}\NormalTok{(}\FunctionTok{dBendford}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{3}
+\item
+  Ya lo hemos hecho\ldots.
+\item
+  Dibujemos
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}
+\NormalTok{aux}\OtherTok{=}\FunctionTok{rep}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{18}\NormalTok{)}
+\NormalTok{aux[}\FunctionTok{seq}\NormalTok{(}\DecValTok{2}\NormalTok{,}\DecValTok{18}\NormalTok{,}\DecValTok{2}\NormalTok{)]}\OtherTok{=}\FunctionTok{dBendford}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{))}
+\NormalTok{x}\OtherTok{=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(x,}\AttributeTok{y=}\FunctionTok{dBendford}\NormalTok{(}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{)),}
+  \AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{),}\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{10}\NormalTok{),}\AttributeTok{xlab=}\StringTok{"x"}\NormalTok{,}
+  \AttributeTok{main=}\StringTok{"Función de probabilidad }\SpecialCharTok{\textbackslash{}n}\StringTok{ Bendford"}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(}\AttributeTok{x=}\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{9}\NormalTok{,}\AttributeTok{each=}\DecValTok{2}\NormalTok{),}\AttributeTok{y=}\NormalTok{aux, }\AttributeTok{type =} \StringTok{"h"}\NormalTok{, }\AttributeTok{lty =} \DecValTok{2}\NormalTok{,}\AttributeTok{col=}\StringTok{"blue"}\NormalTok{)}
+\FunctionTok{curve}\NormalTok{(}\FunctionTok{pBendford}\NormalTok{(x), }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{{-}}\DecValTok{1}\NormalTok{,}\DecValTok{11}\NormalTok{),}\AttributeTok{col=}\StringTok{"blue"}\NormalTok{, }\AttributeTok{main=}\StringTok{"Función de distribución}\SpecialCharTok{\textbackslash{}n}\StringTok{ Bendford"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Tema-3---Notables_mas_notables_SOLUCIONES_files/figure-latex/unnamed-chunk-5-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{distribuciuxf3n-de-pareto-power-law}{%
+\subsection{\texorpdfstring{\textbf{Distribución de Pareto}
+(\textbf{Power
+law})}{Distribución de Pareto (Power law)}}\label{distribuciuxf3n-de-pareto-power-law}}
+
+Es una distribución que aparece en muchos ámbitos. Consideremos el
+económico. Supongamos que en un gran país consideramos la población
+activa económicamente; desde el más humilde becario al directivo más
+adinerado.
+
+Escogemos un individuo al azar de esta población y observamos la
+variable \(X=\) sus ingresos en euros (digamos que anuales).
+
+Un modelo razonable es el que supone que:
+
+\begin{itemize}
+\tightlist
+\item
+  Hay un ingreso mínimo \(x_m>0\).
+\item
+  La probabilidad de un ingreso mayor que \(x\) decrece de forma
+  inversamente proporcional al ingreso \(x\), es decir proporcional a
+  \(\left(\frac{x_m}{x}\right)^{\gamma}\) para algún número real
+  \(\gamma >1.\)
+\end{itemize}
+
+Más formalmente. dado \(x>x_m\)
+
+\[P(X>x)=k\cdot \left(\frac{x_m}{x}\right)^{\gamma}.\] Luego su función
+de distribución es
+
+\[
+F_X(X)=P(X\leq x)=\left\{
+\begin{array}{ll}
+1-P(X > x)= 1- k\cdot \left(\frac{x_m}{x}\right)^{\gamma} & \mbox{ si } x>x_m\\
+0 & \mbox{ si } x\leq x_m
+\end{array}
+\right.
+\] Se pide
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \tightlist
+  \item
+    Calcular en función de \(k\) y \(\gamma\) la densidad de la variable
+    \(X\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Para \(\gamma>1\) calcular \(E(X)\) y \(Var(X)\) y su desviación
+    típica.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    ¿Qué sucede con \(E(X)\) si \(0<\gamma<1\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    ¿Cómo se calcula está
+    \href{https://www.rdocumentation.org/packages/EnvStats/versions/2.3.1/topics/Pareto}{distribución
+    con R}
+    \href{https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.Pareto.html}{y
+    con python}?
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{4}
+  \tightlist
+  \item
+    Dibujar las gráficas de su densidad y distribución para \(\gamma=3\)
+    y \(\gamma=5\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{5}
+  \tightlist
+  \item
+    Explorar por internet (wikipedia) cómo es la distribución
+    \textbf{power law} y qué relación tiene el concepto de \emph{scale
+    free} con los resultados del apartado c).
+  \end{enumerate}
+\end{itemize}
+
+\hypertarget{soluciuxf3n-1}{%
+\subsubsection{Solución}\label{soluciuxf3n-1}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  La densidad será la derivada de la distribución \(F_X\) respecto de
+  \(x\) , si \(x\geq x_m>0\)
+\end{enumerate}
+
+\begin{eqnarray*}
+f_X(x)=(F_X(x))'&=& \left(1- k\cdot \left(\frac{x_m}{x}\right)^{\gamma}\right)'=
+\left(1- k\cdot x_m^{\gamma} \cdot  x^{-\gamma} \right)'= \left(1- k\cdot x_m^{\gamma} \cdot  x^{-\gamma} \right)'\\
+&=& -\gamma\cdot(-k\cdot x_m^{\gamma}) \cdot  x^{-\gamma-1}=\gamma\cdot k\cdot x_m^{\gamma} \cdot  x^{-\gamma-1}
+\end{eqnarray*}
+
+Si tenemos \(x<x_m\) entonces \(f_X(x)=0\) en resumen
+
+\[
+f_X(x)=\left\{
+\begin{array}{ll}
+\gamma \cdot x_m^{\gamma} \cdot  x^{-\gamma-1} &\mbox{ si } x\geq x_m\\
+0 &\mbox{ si } x< x_m\\
+\end{array}
+\right.
+\] Notemos que \(\gamma\) es un parámetro pero \(k\) es na constante a
+determinar pues la densidad debe integrar 1 en el dominio
+\(D_X=[x_m,+\infty)\)
+
+\begin{eqnarray*}
+\int_{x_m}^{+\infty} f_X(x) dx &=&\int_{x_m}^{+\infty} \gamma \cdot k\cdot x_m^{\gamma} \cdot  x^{-\gamma-1}\cdot dx=
+\left[- k\cdot x_m^{\gamma} \cdot  x^{-\gamma}\right]_{x=x_m}^{+\infty}=
+\lim_{x\to \infty} \left[- k\cdot x_m^{\gamma} \cdot  x^{-\gamma}\right] - \left(- k\cdot x_m^{\gamma} \cdot  x_m^{-\gamma}\right)\\
+&=& 0 + k\cdot x_m^{\gamma} \cdot  {x_m}^{-\gamma}=k.
+\end{eqnarray*}
+
+Notemos que el límite es \(0\) pues \(\gamma>0\) y \(x_m>0\). Luego
+\(k=1\) y la función de densidad y la de distribución se puede escribir
+como damos dos versiones
+
+\[
+f_X(x)=\left\{
+\begin{array}{ll}
+\gamma\cdot x_m^{\gamma} \cdot  x^{-(\gamma+1)} &\mbox{ si } x\geq x_m\\
+0 &\mbox{ si } x< x_m\\
+\end{array}
+\right.=
+\left\{
+\begin{array}{ll}
+\frac{\gamma\cdot x_m^{\gamma}}{x^{(\gamma+1)}} &\mbox{ si } x\geq x_m\\
+0 &\mbox{ si } x< x_m\\
+\end{array}
+\right.
+\]
+
+\[
+f_X(x)=\left\{
+\begin{array}{ll}
+\gamma\cdot x_m^{\gamma} \cdot  x^{-(\gamma+1)} &\mbox{ si } x\geq x_m\\
+0 &\mbox{ si } x< x_m\\
+\end{array}
+\right.=
+\left\{
+\begin{array}{ll}
+\frac{\gamma\cdot x_m^{\gamma}}{x^{(\gamma+1)}} &\mbox{ si } x\geq x_m\\
+0 &\mbox{ si } x< x_m\\
+\end{array}
+\right.
+\]
+
+y la distribución
+
+\[
+F_X(X)=
+\left\{
+\begin{array}{ll}
+1-  x_m^\gamma \cdot x^{-\gamma} & \mbox{ si } x>x_m\\
+0 & \mbox{ si } x\leq x_m
+\end{array}
+\right.
+=\left\{
+\begin{array}{ll}
+1-  \left(\frac{x_m}{x}\right)^{\gamma} & \mbox{ si } x>x_m\\
+0 & \mbox{ si } x\leq x_m
+\end{array}
+\right.
+\]
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+\end{enumerate}
+
+Calculemos su esperanza
+
+\begin{eqnarray*}
+E(X)&=&\int_{x_m}^{+\infty} x\cdot f_X(x)\cdot dx=
+\int_{x_m}^{+\infty} x\cdot \gamma\cdot x_m^{\gamma} \cdot  x^{-\gamma-1}\cdot dx=
+\int_{x_m}^{+\infty} \gamma\cdot x_m^{\gamma} \cdot  x^{-\gamma}\cdot dx=
+\left[\frac{\gamma}{-\gamma+1}\cdot x_m^{\gamma} \cdot  x^{-\gamma+1}\right]_{x=x_m}^{+\infty}
+\\
+&=& \lim_{x\to \infty} \left[\frac{\gamma}{-\gamma+1}\cdot x_m^{\gamma} \cdot  x^{-\gamma+1}\right] - \left(\frac{\gamma}{-\gamma+1} \cdot x_m^{\gamma} \cdot  x_m^{-\gamma+1}\right)=
+\lim_{x\to \infty} \left[\frac{\gamma}{-\gamma+1}\cdot x_m^{\gamma} \cdot  x^{-\gamma+1}\right] + \frac{\gamma\cdot x_m}{\gamma-1}  
+\end{eqnarray*}
+
+Ahora tenemos dos casos para el límite que \(0<\gamma\leq 1\) o que
+\(\gamma>1\), es decir que \(-\gamma+1\) sea negativo o positivo,
+entonces
+
+\[
+\lim_{x\to \infty} 
+\left[
+\frac{\gamma}{-\gamma+1}\cdot x_m^{\gamma} \cdot  x^{-\gamma+1}
+\right]=
+\left\{
+\begin{array}{ll}
++\infty & \mbox{ diverge si }  0<\gamma\leq 1 \\
+\frac{\gamma\cdot x_m}{\gamma-1}   & \mbox{ converge si } \gamma > 1\\
+\end{array}
+\right.
+\]
+
+Así que \textbf{no siempre existe} \(E(X)\), si en una distribución
+Pareto \(\gamma\leq 1\) su media diverge se dice entonces que es una
+distribución \textbf{de escala libre}, en inglés \textbf{scale free} en
+el sentido de que carece de media.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Podemos programar pero ya lo han hecho en el paquete
+  \emph{Environmental Statistics} (\texttt{EnvStats}) y el \emph{Extra
+  Distributions} (\texttt{extraDistr}) utilizaremos el segundo paquete
+  en el que las funciones están implementadas en C++) instalarlo si no
+  lo tenéis.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{))}\CommentTok{\# el parámetro gamma es a y el parámetro m es b}
+\FunctionTok{curve}\NormalTok{(extraDistr}\SpecialCharTok{::}\FunctionTok{dpareto}\NormalTok{(x,}\AttributeTok{a=}\DecValTok{1}\NormalTok{,}\AttributeTok{b=}\DecValTok{1}\NormalTok{),}\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{50}\NormalTok{),}
+      \AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{0.04}\NormalTok{),}\AttributeTok{lty=}\DecValTok{1}\NormalTok{,}\AttributeTok{main=}\StringTok{"Densidad  Pareto."}
+\NormalTok{      ,}\AttributeTok{ylab=}\StringTok{"Densidad Pareto"}\NormalTok{)}
+\FunctionTok{curve}\NormalTok{(extraDistr}\SpecialCharTok{::}\FunctionTok{dpareto}\NormalTok{(x,}\AttributeTok{a=}\DecValTok{3}\NormalTok{,}\AttributeTok{b=}\DecValTok{4}\NormalTok{),}
+      \AttributeTok{add=}\ConstantTok{TRUE}\NormalTok{,}\AttributeTok{col=}\StringTok{"red"}\NormalTok{,}\AttributeTok{lty=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{curve}\NormalTok{(extraDistr}\SpecialCharTok{::}\FunctionTok{dpareto}\NormalTok{(x,}\AttributeTok{a=}\DecValTok{4}\NormalTok{,}\AttributeTok{b=}\DecValTok{10}\NormalTok{),}
+      \AttributeTok{add=}\ConstantTok{TRUE}\NormalTok{,}\AttributeTok{col=}\StringTok{"green"}\NormalTok{,}\AttributeTok{lty=}\DecValTok{3}\NormalTok{)}
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{,}\AttributeTok{pch=}\DecValTok{21}\NormalTok{,}
+       \AttributeTok{legend=}\FunctionTok{c}\NormalTok{(}\StringTok{"gamma=1 xm=1"}\NormalTok{,}\StringTok{"gamma=3 xm=4"}\NormalTok{,}\StringTok{"gamma=4 xm=10"}\NormalTok{),}
+       \AttributeTok{col=}\FunctionTok{c}\NormalTok{(}\StringTok{"black"}\NormalTok{,}\StringTok{"red"}\NormalTok{,}\StringTok{"green"}\NormalTok{),}\AttributeTok{lty=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{),}\AttributeTok{cex=}\FloatTok{0.5}\NormalTok{)}
+\FunctionTok{curve}\NormalTok{(extraDistr}\SpecialCharTok{::}\FunctionTok{ppareto}\NormalTok{(x,}\AttributeTok{a=}\DecValTok{1}\NormalTok{,}\AttributeTok{b=}\DecValTok{1}\NormalTok{),}
+      \AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{50}\NormalTok{),}\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{1}\NormalTok{),}\AttributeTok{lty=}\DecValTok{1}\NormalTok{,}\AttributeTok{main=}\StringTok{"Distribución  Pareto."}\NormalTok{,}
+      \AttributeTok{ylab=}\StringTok{"Distribución acumulada Pareto"}\NormalTok{)}
+\FunctionTok{curve}\NormalTok{(extraDistr}\SpecialCharTok{::}\FunctionTok{ppareto}\NormalTok{(x,}\AttributeTok{a=}\DecValTok{3}\NormalTok{,}\AttributeTok{b=}\DecValTok{4}\NormalTok{),}
+      \AttributeTok{add=}\ConstantTok{TRUE}\NormalTok{,}\AttributeTok{col=}\StringTok{"red"}\NormalTok{,}\AttributeTok{lty=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{curve}\NormalTok{(extraDistr}\SpecialCharTok{::}\FunctionTok{ppareto}\NormalTok{(x,}\AttributeTok{a=}\DecValTok{4}\NormalTok{,}\AttributeTok{b=}\DecValTok{10}\NormalTok{),}
+      \AttributeTok{add=}\ConstantTok{TRUE}\NormalTok{,}\AttributeTok{col=}\StringTok{"green"}\NormalTok{,}\AttributeTok{lty=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Tema-3---Notables_mas_notables_SOLUCIONES_files/figure-latex/unnamed-chunk-6-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{par}\NormalTok{(}\AttributeTok{mfrow=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{1}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Buscad los enlaces del la wikipedia. Tenéis que buscar la \emph{Power
+  law} y la \emph{Zipf's law}. Ambas distribuciones son famosas aparecen
+  en la distribución de contactos en una ley social, en la longitud de
+  un mensaje en un foro y en otros aspectos empíricos muy interesantes.
+  Si hay ocasión y el curso es un éxito ampliaremos estas
+  distribuciones.
+\end{enumerate}
+
+\hypertarget{distribuciuxf3n-de-gumbel-teoruxeda-del-valor-extremo.}{%
+\subsection{\texorpdfstring{\textbf{Distribución de Gumbel (teoría del
+valor
+extremo)}.}{Distribución de Gumbel (teoría del valor extremo).}}\label{distribuciuxf3n-de-gumbel-teoruxeda-del-valor-extremo.}}
+
+La distribución de Gumbel aparece en variables que miden lo que se llama
+un valor extremo: precipitación máxima de lluvia, tiempo máximo
+transcurrido entre dos terremotos, o en métodos de \emph{machine
+learning} el máximo de las puntuaciones de una algoritmo; por ejemplo
+comparar pares de objetos (fotos, proteínas, etc.).
+
+Una variable aleatoria sigue una ley de distribución Gumbel (de TIPO I)
+si su distribución es:
+
+\[
+F_X(x)=\left\{
+\begin{array}{ll}
+  e^{-e^{-\frac{x-\mu}{\beta}}} & \mbox{si} x\geq 0\\
+ 0 & \mbox{si} x< 0\\
+\end{array}
+\right.
+\]
+
+Para \(\mu\) y \(\beta>0\) parámetros reales. Llamaremos distribución
+Gumbel estándar a la que tiene por parámetros \(\mu=0\) y \(\beta=1.\)
+
+\begin{itemize}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \tightlist
+  \item
+    Si \(X\) es una Gumbel estándar calcular su función de densidad y
+    dibujar su gráfica.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{1}
+  \tightlist
+  \item
+    Consideremos la función \(F(x)=e^{-e^{-x}}\) para \(x\geq 0\) y que
+    vale cero en el resto de casos. Comprobar que es la función de
+    distribución \(P(X\leq x)\) de una v.a. Gumbel estándar.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{2}
+  \tightlist
+  \item
+    Buscad un paquete de R que implemente la distribución Gumbel.
+    Aseguraros de que es la (Gumbel Tipo I). Dejando fijo el parámetro
+    \(\beta=1\) dibujar la densidad Gumbel para varios valores de
+    \(\mu\) y explicad en que afecta a la gráfica el cambio de \(\mu\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{3}
+  \tightlist
+  \item
+    Dejando fijo el parámetro \(\mu\) dibujad la densidad Gumbel para
+    varios valores de \(\beta>0\) y explicar en qué afecta a la gráfica
+    el cambio de este parámetro.
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{4}
+  \tightlist
+  \item
+    Buscad cuales son las fórmulas de la esperanza y varianza de una
+    distribución Gumbel en función de \(\alpha\) y \(\beta\).
+  \end{enumerate}
+\item
+  \begin{enumerate}
+  \def\labelenumi{\alph{enumi})}
+  \setcounter{enumi}{5}
+  \tightlist
+  \item
+    Repetid los apartados c) y d) con python. Con python se puede pedir
+    con la correspondiente función la esperanza y varianza de esta
+    distribución, comprobar con esta función para algunos valores las
+    fórmulas de la esperanza y la varianza del apartado e).
+  \end{enumerate}
+\end{itemize}
+
+\hypertarget{soluciuxf3n-2}{%
+\subsubsection{Solución}\label{soluciuxf3n-2}}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\tightlist
+\item
+  La Gumbel estándar tiene por distribución
+\end{enumerate}
+
+\[
+F_X(x)=\left\{
+\begin{array}{ll}
+  e^{-e^{-x}} & \mbox{ si } x\geq 0\\
+ 0 & \mbox{ si } x< 0\\
+\end{array}
+\right.
+\]
+
+Entonces si \(x>0\)
+
+\[f_X(X)=(F_X(x))'=\left(e^{-e^{-x}}\right)'=e^{-e^{-x}}\cdot e^{-x} \]
+
+Luego
+
+\[f_X(x)=\left\{
+\begin{array}{ll}
+  e^{-e^{-x}}\cdot e^{-x} & \mbox{ si } x\geq 0\\
+ 0 & \mbox{ si } x< 0\\
+\end{array}
+\right.
+\]
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dgumbel\_standar}\OtherTok{=}\ControlFlowTok{function}\NormalTok{(x) \{}
+  \FunctionTok{sapply}\NormalTok{(x,}
+         \AttributeTok{FUN=}\ControlFlowTok{function}\NormalTok{(x) \{}
+           \ControlFlowTok{if}\NormalTok{(x}\SpecialCharTok{\textgreater{}}\DecValTok{0}\NormalTok{) \{}\FunctionTok{return}\NormalTok{(}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{x))}\SpecialCharTok{*}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{x))\} }\ControlFlowTok{else}\NormalTok{ \{}\FunctionTok{return}\NormalTok{(}\DecValTok{0}\NormalTok{)\}}
+\NormalTok{         \}}
+\NormalTok{  )}
+\NormalTok{  \}}
+
+\FunctionTok{curve}\NormalTok{(}\FunctionTok{dgumbel\_standar}\NormalTok{(x),}\AttributeTok{col=}\StringTok{"blue"}\NormalTok{,}\AttributeTok{main=}\StringTok{"Densidad  Gummbel estándar"}\NormalTok{,}\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{10}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Tema-3---Notables_mas_notables_SOLUCIONES_files/figure-latex/plot_gumbel_standar-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Consideremos la función \(F(x)=e^{-e^{-x}}\) para \(x\geq 0\) y que
+  vale cero en el resto de casos. Comprobar que es la función de
+  distribución \(P(X\leq x)\) de una v.a. Gumbel estándar.
+\end{enumerate}
+
+Efectivamente Es suficiente sustituir en la fórmula original.
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Buscad un paquete de R que implemente la distribución Gumbel.
+  Aseguraros de que es la (Gumbel Tipo I). Dejando fijo el parámetro
+  \(\beta=1\) dibujar la densidad Gumbel para varios valores de \(\mu\)
+  y explicad en que afecta a la gráfica el cambio de \(\mu\).
+\end{enumerate}
+
+Un paquete que implementa la Gumbel es \texttt{extraDistr} el parámetro
+\texttt{mu} es \(\mu\) mientras que \(\beta\) es el parámetro
+\texttt{sigma}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# el parámetro mu es mu y el parámetro beta es sigma}
+\FunctionTok{curve}\NormalTok{(extraDistr}\SpecialCharTok{::}\FunctionTok{dgumbel}\NormalTok{(x,}\AttributeTok{mu=}\DecValTok{1}\NormalTok{,}\AttributeTok{sigma=}\DecValTok{1}\NormalTok{),}\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{10}\NormalTok{),}
+      \AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{0.38}\NormalTok{),}\AttributeTok{lty=}\DecValTok{1}\NormalTok{,}\AttributeTok{main=}\StringTok{"Densidad  Gumbel}\SpecialCharTok{\textbackslash{}n}\StringTok{ mu=1, 2 y 4  y beta 1"}\NormalTok{)}
+\FunctionTok{curve}\NormalTok{(extraDistr}\SpecialCharTok{::}\FunctionTok{dgumbel}\NormalTok{(x,}\AttributeTok{mu=}\DecValTok{2}\NormalTok{,}\AttributeTok{sigma=}\DecValTok{1}\NormalTok{),}
+      \AttributeTok{add=}\ConstantTok{TRUE}\NormalTok{,}\AttributeTok{col=}\StringTok{"red"}\NormalTok{,}\AttributeTok{lty=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{curve}\NormalTok{(extraDistr}\SpecialCharTok{::}\FunctionTok{dgumbel}\NormalTok{(x,}\AttributeTok{mu=}\DecValTok{4}\NormalTok{,}\AttributeTok{sigma=}\DecValTok{1}\NormalTok{),}
+      \AttributeTok{add=}\ConstantTok{TRUE}\NormalTok{,}\AttributeTok{col=}\StringTok{"green"}\NormalTok{,}\AttributeTok{lty=}\DecValTok{3}\NormalTok{)}
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{,}\AttributeTok{pch=}\DecValTok{21}\NormalTok{,}
+       \AttributeTok{legend=}\FunctionTok{c}\NormalTok{(}\StringTok{"mu=1, beta=1"}\NormalTok{,}\StringTok{"mu=2, beta=1"}\NormalTok{,}\StringTok{"mu=4, beta=1"}\NormalTok{),}
+       \AttributeTok{col=}\FunctionTok{c}\NormalTok{(}\StringTok{"black"}\NormalTok{,}\StringTok{"red"}\NormalTok{,}\StringTok{"green"}\NormalTok{),}\AttributeTok{lty=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{),}\AttributeTok{cex=}\FloatTok{0.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Tema-3---Notables_mas_notables_SOLUCIONES_files/figure-latex/plot_gumbel_taller_e-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Dejando fijo el parámetro \(\mu\) dibujad la densidad Gumbel para
+  varios valores de \(\beta>0\) y explicar en que afecta a la gráfica el
+  cambio de este parámetro.
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# el paramento mu es mu y el parámetro beta es sigma}
+\FunctionTok{curve}\NormalTok{(extraDistr}\SpecialCharTok{::}\FunctionTok{dgumbel}\NormalTok{(x,}\AttributeTok{mu=}\DecValTok{1}\NormalTok{,}\AttributeTok{sigma=}\DecValTok{1}\NormalTok{),}\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{15}\NormalTok{),}
+      \AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\FloatTok{0.38}\NormalTok{),}\AttributeTok{lty=}\DecValTok{1}\NormalTok{,}\AttributeTok{main=}\StringTok{"Densidad  Gumbel}\SpecialCharTok{\textbackslash{}n}\StringTok{ mu=1 y beta variando 1,5, y 10"}\NormalTok{)}
+\FunctionTok{curve}\NormalTok{(extraDistr}\SpecialCharTok{::}\FunctionTok{dgumbel}\NormalTok{(x,}\AttributeTok{mu=}\DecValTok{1}\NormalTok{,}\AttributeTok{sigma=}\DecValTok{2}\NormalTok{),}
+      \AttributeTok{add=}\ConstantTok{TRUE}\NormalTok{,}\AttributeTok{col=}\StringTok{"red"}\NormalTok{,}\AttributeTok{lty=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{curve}\NormalTok{(extraDistr}\SpecialCharTok{::}\FunctionTok{dgumbel}\NormalTok{(x,}\AttributeTok{mu=}\DecValTok{1}\NormalTok{,}\AttributeTok{sigma=}\DecValTok{4}\NormalTok{),}
+      \AttributeTok{add=}\ConstantTok{TRUE}\NormalTok{,}\AttributeTok{col=}\StringTok{"green"}\NormalTok{,}\AttributeTok{lty=}\DecValTok{3}\NormalTok{)}
+\FunctionTok{legend}\NormalTok{(}\StringTok{"topright"}\NormalTok{,}\AttributeTok{pch=}\DecValTok{21}\NormalTok{,}
+       \AttributeTok{legend=}\FunctionTok{c}\NormalTok{(}\StringTok{"mu=1, beta=1"}\NormalTok{,}\StringTok{"mu=1, beta=2"}\NormalTok{,}\StringTok{"mu=1, beta=4"}\NormalTok{),}
+       \AttributeTok{col=}\FunctionTok{c}\NormalTok{(}\StringTok{"black"}\NormalTok{,}\StringTok{"red"}\NormalTok{,}\StringTok{"green"}\NormalTok{),}\AttributeTok{lty=}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{),}\AttributeTok{cex=}\FloatTok{0.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Tema-3---Notables_mas_notables_SOLUCIONES_files/figure-latex/plot_gumbel_taller_d-1.pdf}
+
+\begin{enumerate}
+\def\labelenumi{\alph{enumi})}
+\setcounter{enumi}{4}
+\item
+  Si \(X\) sigue un ley Gumbel de parámetros \(\mu\) y \(\beta\)
+  entonces \(E(X)=\mu+\beta\cdot\gamma\) donde gamma es el número de
+  euler \(\gamma=0.577215664\ldots\), y
+  \(Var(X)=\frac{\pi^2}{6}\cdot \beta^2\)
+\item
+  Repetid los apartados c) y d) con python. Con python se puede pedir
+  con la correspondiente función la esperanza y varianza de esta
+  distribución, comprobar con esta función para algunos valores las
+  fórmulas de la esperanza y la varianza del apartado e).
+\end{enumerate}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np }
+\ImportTok{from}\NormalTok{ scipy.stats }\ImportTok{import}\NormalTok{ gumbel\_r}
+\NormalTok{mu, beta }\OperatorTok{=} \DecValTok{0}\NormalTok{, }\FloatTok{0.1} \CommentTok{\# location and scale}
+\NormalTok{x }\OperatorTok{=}\NormalTok{ np.linspace(}\DecValTok{0}\NormalTok{, }\DecValTok{2} \OperatorTok{*}\NormalTok{ np.pi, }\DecValTok{30}\NormalTok{)}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\CommentTok{\#count, bins, ignored = plt.hist(s, 30, normed=True)}
+\NormalTok{plt.plot(x,gumbel\_r.pdf(x, loc}\OperatorTok{=}\DecValTok{1}\NormalTok{, scale}\OperatorTok{=}\DecValTok{1}\NormalTok{),linewidth}\OperatorTok{=}\DecValTok{2}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.plot(x,gumbel\_r.pdf(x, loc}\OperatorTok{=}\DecValTok{2}\NormalTok{, scale}\OperatorTok{=}\DecValTok{1}\NormalTok{),linewidth}\OperatorTok{=}\DecValTok{2}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}green\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.plot(x,gumbel\_r.pdf(x, loc}\OperatorTok{=}\DecValTok{4}\NormalTok{, scale}\OperatorTok{=}\DecValTok{1}\NormalTok{),linewidth}\OperatorTok{=}\DecValTok{2}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Tema-3---Notables_mas_notables_SOLUCIONES_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{import}\NormalTok{ numpy }\ImportTok{as}\NormalTok{ np }
+\ImportTok{from}\NormalTok{ scipy.stats }\ImportTok{import}\NormalTok{ gumbel\_r}
+\NormalTok{mu, beta }\OperatorTok{=} \DecValTok{0}\NormalTok{, }\FloatTok{0.1} \CommentTok{\# location and scale}
+\NormalTok{x }\OperatorTok{=}\NormalTok{ np.linspace(}\DecValTok{0}\NormalTok{, }\DecValTok{2} \OperatorTok{*}\NormalTok{ np.pi, }\DecValTok{30}\NormalTok{)}
+\ImportTok{import}\NormalTok{ matplotlib.pyplot }\ImportTok{as}\NormalTok{ plt}
+\CommentTok{\#count, bins, ignored = plt.hist(s, 30, normed=True)}
+\NormalTok{plt.plot(x,gumbel\_r.pdf(x, loc}\OperatorTok{=}\DecValTok{1}\NormalTok{, scale}\OperatorTok{=}\DecValTok{1}\NormalTok{),linewidth}\OperatorTok{=}\DecValTok{2}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}black\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.plot(x,gumbel\_r.pdf(x, loc}\OperatorTok{=}\DecValTok{1}\NormalTok{, scale}\OperatorTok{=}\DecValTok{2}\NormalTok{),linewidth}\OperatorTok{=}\DecValTok{2}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}green\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.plot(x,gumbel\_r.pdf(x, loc}\OperatorTok{=}\DecValTok{1}\NormalTok{, scale}\OperatorTok{=}\DecValTok{4}\NormalTok{),linewidth}\OperatorTok{=}\DecValTok{2}\NormalTok{, color}\OperatorTok{=}\StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{)}
+\NormalTok{plt.show()}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Tema-3---Notables_mas_notables_SOLUCIONES_files/figure-latex/unnamed-chunk-8-3.pdf}
+Y los estadísticos
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\ImportTok{from}\NormalTok{ scipy.stats }\ImportTok{import}\NormalTok{ gumbel\_r}
+\NormalTok{gumbel\_r.stats(loc}\OperatorTok{=}\DecValTok{0}\NormalTok{, scale}\OperatorTok{=}\DecValTok{1}\NormalTok{, moments}\OperatorTok{=}\StringTok{\textquotesingle{}mv\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## (0.5772156649015329, 1.6449340668482264)
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"E(X) = }\SpecialCharTok{\{m\}}\StringTok{"}\NormalTok{.}\BuiltInTok{format}\NormalTok{(m}\OperatorTok{=}\NormalTok{gumbel\_r.stats(loc}\OperatorTok{=}\DecValTok{0}\NormalTok{, scale}\OperatorTok{=}\DecValTok{1}\NormalTok{, moments}\OperatorTok{=}\StringTok{\textquotesingle{}m\textquotesingle{}}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## E(X) = 0.5772156649015329
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Var(X) = }\SpecialCharTok{\{v\}}\StringTok{"}\NormalTok{.}\BuiltInTok{format}\NormalTok{(v}\OperatorTok{=}\NormalTok{gumbel\_r.stats(loc}\OperatorTok{=}\DecValTok{0}\NormalTok{, scale}\OperatorTok{=}\DecValTok{1}\NormalTok{, moments}\OperatorTok{=}\StringTok{\textquotesingle{}v\textquotesingle{}}\NormalTok{)))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Var(X) = 1.6449340668482264
+\end{verbatim}
+
+Se observa que en este caso la esperanza es la constante de euler
+\(\gamma=0.577215664\ldots\).
+
+\end{document}

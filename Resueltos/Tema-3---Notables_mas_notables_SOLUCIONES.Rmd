@@ -1,7 +1,7 @@
 ---
 title: "SOLUCIONES: Ejercicios Tema 3 - Distribuciones Notables: más distribuciones notables"
-author: "Ricardo Alberich, Juan Gabriel Gomila y Arnau Mir"
-date: "Curso de Probabilidad y Variables Aleatorias con R y Python"
+author: "Otras distribuciones notables"
+date: '`r format(Sys.time(), "%d %B, %Y")`'
 output:
   pdf_document: 
     number_sections: yes
