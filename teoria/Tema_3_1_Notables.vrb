@@ -1,0 +1,30 @@
+\frametitle{Solución ejemplo \(BN(n,p)\)}
+\protect\hypertarget{soluciuxf3n-ejemplo-bnnp-2}{}
+\textbf{Solución 5.} ¿Cuál es el número esperado de fallos antes de
+acceder al sistema? ¿Y su desviación típica?
+
+\[E(X)=n\cdot \frac{1-p}{p}=3\cdot \frac{1- 0.001}{0.001}=2997.\]
+\[Var(X)=n\cdot \frac{1-p}{p^2}=3\cdot \frac{1- 0.001^2}{0.001^2}=\ensuremath{2.997\times 10^{6}}.\]
+
+Con python
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{params }\OperatorTok{=}\NormalTok{ nbinom.stats(n}\OperatorTok{=}\DecValTok{3}\NormalTok{,p}\OperatorTok{=}\FloatTok{0.001}\NormalTok{,moments}\OperatorTok{=}\StringTok{\textquotesingle{}mv\textquotesingle{}}\NormalTok{)}
+\BuiltInTok{print}\NormalTok{(}\StringTok{"E(X) = }\SpecialCharTok{\{m\}}\StringTok{"}\NormalTok{.}\BuiltInTok{format}\NormalTok{(m}\OperatorTok{=}\NormalTok{params[}\DecValTok{0}\NormalTok{]))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+E(X) = 2997.0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\BuiltInTok{print}\NormalTok{(}\StringTok{"Var(X) = }\SpecialCharTok{\{v\}}\StringTok{"}\NormalTok{.}\BuiltInTok{format}\NormalTok{(v}\OperatorTok{=}\NormalTok{params[}\DecValTok{1}\NormalTok{]))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+Var(X) = 2997000.0
+\end{verbatim}
