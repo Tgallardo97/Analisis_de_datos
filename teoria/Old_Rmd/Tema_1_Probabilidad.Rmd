@@ -1,114 +1,117 @@
 ---
-title: "Tema 1: Probabilidad"
-lang: es
-author: "Parte 1: Probabilidad con R y python"
-date: "`r Sys.time()`"
-date-format: "MMMM YYYY"
-format: 
-  beamer:
+title: "Parte1. Tema 1: Probabilidad"
+author: "Probabilidad con R y python"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
+output:
+  beamer_presentation:
+    includes:
+      in_header: header_pagenrs_complet_ver3_s_normal.tex
     theme: CambridgeUS
-    include-in-header:
-      - file: header_pagenrs_complet_ver2_1.tex
-      - text: |
-           \AtBeginDocument{\title[Tema 1: Probabilidad]{Tema 1: Probabilidad}}
-linkcolor: blue
+    toc: yes
+  ioslides_presentation:
+    css: Mery_style.css
+    keep_md: no
+    logo: Images/matriz_mov.gif
+    widescreen: yes
+linkcolor: green
 classoption: aspectratio=169 
-editor: source
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE,out.width = "65%",cache=TRUE)
+knitr::opts_chunk$set(echo = TRUE,out.width = "65%")
 ```
 
 # Probabilidades Básicas
 
 ## Definiciones básicas
 
-<l class="definition">Experimento aleatorio</l>: experimento que repetido en las mismas condiciones puede dar resultados diferentes, pero que a largo plazo son predecibles
+<l class="definition">Experimento aleatorio</l>: experimento que
+repetido en las mismas condiciones puede dar resultados diferentes, pero
+que a largo plazo son predecibles
 
 ::: example
 **Ejemplo**
 
-Tirar un dado de 6 caras y anotar el número de puntos de la cara superior.
+Tirar un dado de 6 caras y anotar el número de puntos de la cara
+superior.
 
-<l class="definition">Suceso elemental</l>: cada uno de los posibles resultados del experimento aleatorio
+
+<l class="definition">Suceso elemental</l>: cada uno de los posibles
+resultados del experimento aleatorio
 
 **Ejemplo**
 
 Los sucesos elementales del ejemplo anterior son:
 
 ```{r, echo=FALSE}
-#| fig-align: center
-#| 
-library(cowplot) # for ggdraw() & draw_image()
-library(ggpubr)
-library(ggplot2)
-
-dice_path= paste0("Images/proba1dibujos/dice/",1:6,".png")
-dice=paste0("dice",1:6)
-scaling=0.65
-for(i in 1:6){
- assign(dice[i], ggdraw() + draw_image(dice_path[i], scale = scaling)) 
-}
-
-
-ggarrange_plot <- ggarrange(dice1,dice2, dice3,dice4,dice5,dice6,
-                            labels = NULL, # add tag label to each plot
-                            align = c("h"), #"none" = default
-                            ncol=6
-                            )
-ggarrange_plot
-
+knitr::include_graphics(c("Images/proba1dibujos/dice/1.png",                        "Images/proba1dibujos/dice/2.png",            "Images/proba1dibujos/dice/3.png",            "Images/proba1dibujos/dice/4.png",            "Images/proba1dibujos/dice/5.png",            "Images/proba1dibujos/dice/6.png"))
 ```
 :::
 
+
 ## Definiciones básicas
 
-<l class="definition"> Espacio muestral</l>: el conjunto $\Omega$ formado por todos los sucesos elementales del experimento aleatorio
+<l class="definition"> Espacio muestral</l>: el conjunto $\Omega$
+formado por todos los sucesos elementales del experimento aleatorio
 
 ::: example
 **Ejemplo**
 
-El espacio muestral del ejemplo anterior del dado es $\Omega=$ las figuras de la caras anteriores
+El espacio muestral del ejemplo anterior del dado es $\Omega=$  las  figuras de la caras anteriores 
 
 ::: center
 ```{r, echo=FALSE}
-#| fig-align: center
-ggarrange_plot
+knitr::include_graphics(c("Images/proba1dibujos/dice/1.png", 
+                          "Images/proba1dibujos/dice/2.png",
+                          "Images/proba1dibujos/dice/3.png",
+                          "Images/proba1dibujos/dice/4.png",
+                          "Images/proba1dibujos/dice/5.png",
+                          "Images/proba1dibujos/dice/6.png"))
 ```
 :::
 
-pero por comodidad, y en general pondremos $$\Omega = \{1,2,3,4,5,6\}$$
+pero por comodidad,  y en general pondremos
+$$\Omega = \{1,2,3,4,5,6\}$$
 :::
 
 ## Definiciones básicas
 
-<l class="definition"> Suceso </l> : Cualquier subconjunto del espacio muestral.
+<l class="definition"> Suceso </l> : Cualquier subconjunto del espacio
+muestral.
 
 Alguno sucesos notables que merece la pena nombrar son:
 
 -   <l class="definition">Suceso seguro o cierto</l>: $\Omega$
 -   <l class="definition">Suceso imposible o vacio</l>: $\emptyset$
--   <l class="definition">Partes de un conjunto</l>: $\mathcal{P}(\Omega)$: conjunto de todos los sucesos del experimento aleatorio (es decir, el conjunto de todos los subconjuntos de $\Omega$)
+-   <l class="definition">Partes de un conjunto</l>:
+    $\mathcal{P}(\Omega)$: conjunto de todos los sucesos del experimento
+    aleatorio (es decir, el conjunto de todos los subconjuntos de
+    $\Omega$)
 
 ::: exercise
 **Ejercicio**
 
-¿Cuantos elementos contiene el conjunto de partes de $\Omega$ del experimento anterior?
+¿Cuantos elementos contiene el conjunto de partes de $\Omega$ del
+experimento anterior?
 :::
 
 ## Ejemplo $n$-grama
 
-Se define un $n$-grama de una palabra como el conjunto de $n$ letras consecutivas de la misma (contando los blancos de inicio y final de palabra que marcamos como "\_").
+Se define un $n$-grama de una palabra como el conjunto de $n$ letras
+consecutivas de la misma (contando los blancos de inicio y final de
+palabra que marcamos como "\_").
 
 ::: example
 **Ejemplo**
 
-Consideremos el experimento aleatorio que consiste en escoger al azar un 3-grama de la palabra "\_Baleares\_". Vamos a escribir el espacio muestral y algunos sucesos elementales del mismo.
+Consideremos el experimento aleatorio que consiste en escoger al azar un
+3-grama de la palabra "\_Baleares\_". Vamos a escribir el espacio
+muestral y algunos sucesos elementales del mismo.
 :::
 
 ::: example-sol
-En este caso, si consideramos la palabra "\_Baleares\_", el espacio muestral del experimento sería:
+En este caso, si consideramos la palabra "\_Baleares\_", el espacio
+muestral del experimento sería:
 
 $$\Omega=\{\_Ba, Bal, ale, lea, ear, are, res, es\_\}$$
 :::
@@ -132,16 +135,20 @@ Si tenemos dos sucesos $A,B\subseteq \Omega$, podemos definir:
 -   $A\cup B$: suceso *unión*; el que ocurre si sucede $A$ o $B$.
 -   $A\cap B$: suceso *intersección*; el que ocurre si sucede $A$ y $B$.
 -   $A^c$: suceso *complementario* el que sucede si NO sucede $A$.
--   $A- B=A\cap B^c$: suceso *diferencia*, que acontece si sucede $A$ y NO sucede $B$.
+-   $A- B=A\cap B^c$: suceso *diferencia*, que acontece si sucede $A$ y
+    NO sucede $B$.
 
-<l class="definition"> Sucesos incompatibles</l>: $A$ y $B$ son *incompatibles* (o *disjuntos*) cuando $A\cap B=\emptyset$.
+<l class="definition"> Sucesos incompatibles</l>: $A$ y $B$ son
+*incompatibles* (o *disjuntos*) cuando $A\cap B=\emptyset$.
 
 ## Ejemplo género
 
 ::: example
 **Ejemplo**
 
-Supongamos que el sexo se divide entre Mujeres y Hombres. Vamos a definir el espacio muestral, los sucesos elementales y a realizar algunas operaciones entre ellos.
+Supongamos que el sexo se divide entre Mujeres y Hombres. Vamos a
+definir el espacio muestral, los sucesos elementales y a realizar
+algunas operaciones entre ellos.
 :::
 
 ::: example-sol
@@ -187,7 +194,8 @@ $$A\cap(B\cup C)=(A\cap B)\cup (A\cap C), \quad A\cup(B\cap C)=(A\cup B)\cap (A\
 
 ## Propiedades
 
-<l class="definition"> Complementario del complementario </l> $$(A^c)^c=A$$
+<l class="definition"> Complementario del complementario </l>
+$$(A^c)^c=A$$
 
 |                        $A$                        |                       $A^c$                       |                     $(A^c)^c$                     |
 |:----------------------:|:----------------------:|:----------------------:|
@@ -235,7 +243,8 @@ $$(A\cap B)^c=A^c\cup B^c$$
 
 ## Definición de probabilidad
 
-La probabilidad de un suceso es una puntuación (*score*) numérico entre 0 y 1 que mide la verosimilitud de que este evento se produzca.
+La probabilidad de un suceso es una puntuación (*score*) numérico entre
+0 y 1 que mide la verosimilitud de que este evento se produzca.
 
 Esta verosimilitud puede estar justificada por:
 
@@ -251,45 +260,52 @@ Esta verosimilitud puede estar justificada por:
 
 <l class="definition">Definición formal de probabilidad</l>
 
-Sea $\Omega$ el espacio muestral de un experimento aleatorio. Supongamos que el número de posibles resultados, por el momento, es finito.
+Sea $\Omega$ el espacio muestral de un experimento aleatorio. Supongamos
+que el número de posibles resultados, por el momento, es finito.
 
-Una probabilidad sobre $\Omega$ es una aplicación $P:\mathcal{P}(\Omega)\to [0,1]$ con las siguientes propiedades:
+Una probabilidad sobre $\Omega$ es una aplicación
+$P:\mathcal{P}(\Omega)\to [0,1]$ con las siguientes propiedades:
 
 1.  $0\leq P(A)\leq 1$, para todo suceso $A$.
 2.  $P(\Omega)=1$.
-3.  Si $\{A_1,A_2,\ldots,A_n\}$ son sucesos disjuntos dos a dos, entonces
+3.  Si $\{A_1,A_2,\ldots,A_n\}$ son sucesos disjuntos dos a dos,
+    entonces
 
 $$
 P(A_1\cup A_2\cup \cdots \cup A_n)=P(A_1)+P(A_2)+\cdots +P(A_n)
 $$
 
-Si $a\in \Omega$ es un suceso elemental cometeremos el abuso de notación de poner $P(a)$ en lugar de $P(\{a\})$.
+Si $a\in \Omega$ es un suceso elemental cometeremos el abuso de notación
+de poner $P(a)$ en lugar de $P(\{a\})$
 
 ## Ejemplo: grupos sanguíneos
 
 ::: example
 **Ejemplo**
 
-En la página de la [Fundación Banco de Sangre y Tejidos de las Islas Baleares (17-08-2023)](http://www.donasang.org/que-es-la-sang/es_frequencies-dels-diferents-grups.html) podemos encontrar información sobre los porcentajes de tipos de sangre de los donantes de las Islas Baleares:
+En la página de la [Fundación Banco de Sangre y Tejidos de las Islas
+Baleares](http://www.donasang.org/que-es-la-sang/es_frequencies-dels-diferents-grups.html)
+podemos encontrar información sobre los porcentajes de tipos de sangre
+de los donantes de las Islas Baleares:
 
 $$A: 46\%;\  B: 7.5\%;\  AB: 3.5\%;\  O: 43\%.$$
 
-¿Cuál es la probabilidad de que un balear donante de sangre no sea del tipo O?
+¿Cuál es la probabilidad de que un balear donante de sangre no sea del
+tipo O?
 :::
 
-## Ejemplo: grupos sanguíneos
-
 ::: example-sol
-**Experimento aleatorio:** tipo de sangre de un paciente humano:
+**Experimento aleatorio:** tipo de sangre de un paciente humano
 
 $$\Omega=\{\mbox{A,B,AB,O}\}$$
 
-**Probabilidad** de un suceso: se asimila al porcentaje observado de individuos.
+**Probabilidad** de un suceso: se asimila al porcentaje observado de
+individuos
 
-**Suceso:** $\{\mbox{O}\}^c=\{\mbox{A,B,AB}\}$.
+**Suceso:** $\{\mbox{O}\}^c=\{\mbox{A,B,AB}\}$
 
 $$P(\{\mbox{O}\}^c)\!=\!P(\{\mbox{A,B,AB}\})\!=\!
-P(\mbox{A})+P (\mbox{B})+P(\mbox{AB})\!=\!0.57.$$
+P(\mbox{A})+P (\mbox{B})+P(\mbox{AB})\!=\!0.57$$
 :::
 
 ## Propiedades
@@ -312,48 +328,41 @@ knitr::include_graphics("Images/proba1dibujos/A-B.jpg")
 
 ## Propiedades
 
-$P(A\cup B)=P(A)+P(B)-P(A\cap B)$
+$P(A\cup B)=P(A)+P(B)-P(A\cap B)$ 
 
 ```{r probunion,fig.align='center',echo=FALSE,out.width="60%"}
 knitr::include_graphics("Images/proba1dibujos/A-B.jpg")
 ```
 
-## Propiedades
-
-... de forma analítica
-
-
-\begin{eqnarray*}
-P(A)+P(B)-P(A\cap B) &=& P(A-B)+P(A\cap B)\\ 
-& & +P(B-A)+ P(A\cap  B)-P(A\cap  B)\\
-&=& P(A-B)+P(A\cap B)+ P(B-A) \\
-&=& P(A\cup B).\\
-\end{eqnarray*}
 
 
 ## Propiedades
 
-Para la unión de tres conjuntos
 
-¡
-$$P(A\cup B\cup C)$$
+... porque
 
+$$
+\scriptsize{
+\begin{array} {ll}
+P(A)+P(B)-P(A\cap B) &= P(A-B)+P(A\cap B)+P(B-A)+ P(A\cap  B)-P(A\cap  B)\\
+&= P(A-B)+P(A\cap B)+ P(B-A) \\
+&= P(A\cup B).
+\end{array}
+}
+$$
+
+
+## Propiedades
+
+-   $\scriptsize{P(A\cup B\cup C)=P(A)+P(B)+P(C)-P(A\cap B)-P(A\cap C)-P(B\cap C)+P(A\cap B\cap C).}$
+    
 ```{r probunion_3,fig.align='center',echo=FALSE,out.width="30%"}
 knitr::include_graphics("Images/proba1dibujos/tresconjunts.jpg")
 ```
 
-## Propiedades
-... analíticamente
 
-\begin{eqnarray*}
-P(A\cup B\cup C)&=&P(A)+P(B)+P(C)-P(A\cap B) \\
-  & & - P(A\cap C)-P(B\cap C)+P(A\cap B\cap C).\\
-  \end{eqnarray*} 
 
-Efectivamente tenemos que:
-
-$$P(A\cup B\cup C)=P(1)+P(2)+P(3)+P(4)+P(5)+P(6)+P(7).$$
-
+$\scriptsize{P(A\cup B\cup C)=P(1)+P(2)+P(3)+P(4)+P(5)+P(6)+P(7).}$
 
 ## Propiedades
 
@@ -370,11 +379,15 @@ $$P(A\cup B\cup C)=P(1)+P(2)+P(3)+P(4)+P(5)+P(6)+P(7).$$
 ::: example
 **Ejemplo**
 
-Los porcentajes de vocales de un determinado idioma (de alfabeto latino) según la [Wikipedia](https://es.wikipedia.org/wiki/Frecuencia_de_aparici%C3%B3n_de_letras) son:
+Los porcentajes de vocales de un determinado idioma (de alfabeto latino)
+según la
+[Wikipedia](https://es.wikipedia.org/wiki/Frecuencia_de_aparici%C3%B3n_de_letras)
+son:
 
 $$A: 18.7\%;\ E: 26.1\%;\ I: 25.7\%;\ O: 24.4\%;\ U: 5.1\%.$$
 
-¿Cuál es la probabilidad que una vocal escogida al azar de este idioma sea una E o una O?
+¿Cuál es la probabilidad que una vocal escogida al azar de este idioma
+sea una E o una O?
 :::
 
 ::: example-sol
@@ -390,9 +403,15 @@ $$P(\{E,O\})=P(E)+P(O)=0.261+0.244=0.505.$$
 ## Ejemplo: Consumo de drogas
 
 ::: example
-Segun un árticulo de [El País](https://elpais.com/politica/2019/01/02/actualidad/1546426491_623324.html), en un control especial de la policía el $0.1\%$ de todos los conductores analizados en un control de tráfico dan positivo en un el test en cocaína, y el $1\%$ da positivo en cannabis. Un $1.05\%$ da positivo en alguno de los dos test.
+Segun un árticulo de [El
+País](https://elpais.com/politica/2019/01/02/actualidad/1546426491_623324.html),
+en un control especial de la policía el $0.1\%$ de todos los conductores
+analizados en un control de tráfico dan positivo en un el test en
+cocaína, y el $1\%$ da positivo en cannabis. Un $1.05\%$ da positivo en
+alguno de los dos test.
 
-¿Cuál es la probabilidad que un individuo analizado en el control de drogas escogido al azar no de positivo en ninguno de lo dos test?
+¿Cuál es la probabilidad que un individuo analizado en el control de
+drogas escogido al azar no de positivo en ninguno de lo dos test?
 :::
 
 ::: example-sol
@@ -403,10 +422,11 @@ Los sucesos elementales del enunciado del problema son:
 
 En este caso nos interesa estudiar los sucesos:
 
--   $A\cup B$: dar positivo en alguno de los dos test; $P(A\cup B)=0.0105.$
--   $(A\cup B)^c$: no dar positivo en ninguno de los test,por tanto: 
+-   $A\cup B$: dar positivo en alguno de los dos test;
+    $P(A\cup B)=0.0105.$
+-   $(A\cup B)^c$: no dar positivo en ninguno de los test,
 
-$\hfill P((A\cup B)^c)=1-P(A\cup B)=1-0.0105=0.9895.\hfill$
+por tanto: $$P((A\cup B)^c)=1-P(A\cup B)=1-0.0105=0.9895.$$
 :::
 
 ## Ejemplo: Consumo de drogas
@@ -414,9 +434,13 @@ $\hfill P((A\cup B)^c)=1-P(A\cup B)=1-0.0105=0.9895.\hfill$
 ::: example
 **Ejemplo**
 
-En un control especial de la policía el $0.1\%$ de todos los conductores analizados en un control de tráfico dan positivo en un el test en cocaína, y el $1\%$ da positivo en cannabis. Un $1.05\%$ da positivo en alguno de los dos test.
+En un control especial de la policía el $0.1\%$ de todos los conductores
+analizados en un control de tráfico dan positivo en un el test en
+cocaína, y el $1\%$ da positivo en cannabis. Un $1.05\%$ da positivo en
+alguno de los dos test.
 
-¿Cuál es la probabilidad que un analizado al azar de positivo en los dos test en cocaína y cannabis?
+¿Cuál es la probabilidad que un analizado al azar de positivo en los dos
+test en cocaína y cannabis?
 :::
 
 ## Ejemplo: Consumo de drogas
@@ -429,13 +453,18 @@ Los sucesos elementales son:
 
 En este caso nos interesa estudiar los sucesos:
 
--   $A\cup B$: dar positivo en algún de los dos test; $P(A\cup B)=0.0105.$
+-   $A\cup B$: dar positivo en algún de los dos test;
+    $P(A\cup B)=0.0105.$
 -   $A\cap B$: dar positivo en los dos test
+
 :::
 
 ## Ejemplo: Consumo de drogas
 
+
 ::: example-sol
+
+
 de donde, por tanto:
 
 $$\begin{array}{rl}
@@ -448,24 +477,33 @@ $$\begin{array}{rl}
 ::: example
 **Ejemplo**
 
-En un control especial de la policía el $0.1\%$ de todos los conductores analizados en un control de tráfico dan positivo en un el test en cocaína, y el $1\%$ da positivo en cannabis. Un $1.05\%$ da positivo en alguno de los dos test.
+En un control especial de la policía el $0.1\%$ de todos los conductores
+analizados en un control de tráfico dan positivo en un el test en
+cocaína, y el $1\%$ da positivo en cannabis. Un $1.05\%$ da positivo en
+alguno de los dos test.
 
-¿Cuál es la probabilidad de que un conductor analizado de positivo en cocaína pero no en cannabis?
+¿Cuál es la probabilidad de que un conductor analizado de positivo en
+cocaína pero no en cannabis?
 :::
 
 ## Ejemplo: Consumo de drogas
 
-::: example-sol 
-
+::: example-sol
 Los sucesos elementales son:
 
 -   $A$: dar positivo en cocaína; $P(A)=0.001.$
 -   $B$: dar positivo en cannabis; $P(B)=0.01.$
 
+
+## Ejemplo: Consumo de drogas
+
+::: example-sol
+
+
 En este caso nos interesa estudiar los sucesos:
 
 -   $A\cap B$: dar positivo en los dos test; $P(A\cap B)=0.0005.$
--   $A-B$: dar positivo en cocaína pero no en cannabis, por lo tanto tenemos que :
+-   $A-B$: dar positivo en cocaína pero no en cannabis, por lo  tanto tenemos que :
 
 $$P(A-B) =P(A)-P(A\cap B) =0.001-0.0005=0.0005.$$
 :::
@@ -474,7 +512,9 @@ $$P(A-B) =P(A)-P(A\cap B) =0.001-0.0005=0.0005.$$
 
 ## Probabilidad condicionada
 
-<l class="definition">Probabilidad condicionada</l>: Dados dos sucesos $A$ y $B$, con $P(A)>0$, la probabilidad $P(B|A)$ de $B$ condicionado a $A$ es la probabilidad
+<l class="definition">Probabilidad condicionada</l>: Dados dos sucesos
+$A$ y $B$, con $P(A)>0$, la probabilidad $P(B|A)$ de $B$ condicionado a
+$A$ es la probabilidad
 
 -   de que suceda $B$ suponiendo que pasa $A$,
 -   de que si pasa $A$, entonces suceda $B$,
@@ -491,7 +531,8 @@ $$
 ::: example
 **Ejemplo**
 
-En una clase de 20 hombres y 30 mujeres, 15 hombres y 18 mujeres llevan gafas. Contestemos las siguientes preguntas:
+En una clase de 20 hombres y 30 mujeres, 15 hombres y 18 mujeres llevan
+gafas. Contestemos las siguientes preguntas:
 :::
 
 ::: example-sol
@@ -513,7 +554,8 @@ $$
 ::: example
 **Ejemplo**
 
-En una clase de 20 hombres y 30 mujeres, 15 hombres y 18 mujeres llevan gafas. Contestemos las siguientes preguntas:
+En una clase de 20 hombres y 30 mujeres, 15 hombres y 18 mujeres llevan
+gafas. Contestemos las siguientes preguntas:
 :::
 
 ::: example-sol
@@ -523,7 +565,8 @@ $$
 \frac{18}{30}=\frac{18/50}{30/50}=\frac{P(\mbox{mujer  y gafas})}{P(\mbox{mujer})}.
 $$
 
--   Si escogemos un estudiante al azar ¿Cuál es la probabilidad que si es mujer, entonces lleve gafas?
+-   Si escogemos un estudiante al azar ¿Cuál es la probabilidad que si
+    es mujer, entonces lleve gafas?
 
 $$
 \frac{18}{30}.
@@ -535,7 +578,8 @@ $$
 ::: example
 **Ejemplo**
 
-En una clase de 20 hombres y 30 mujeres, 15 hombres y 18 mujeres llevan gafas. Contestemos las siguientes preguntas:
+En una clase de 20 hombres y 30 mujeres, 15 hombres y 18 mujeres llevan
+gafas. Contestemos las siguientes preguntas:
 :::
 
 ::: example-sol
@@ -545,7 +589,8 @@ $$
 \frac{18}{33}=\frac{18/50}{33/50}=\frac{P(\mbox{mujer y gafas})}{P(\mbox{gafas})}.
 $$
 
--   Si escogemos un estudiante al azar ¿Cuál es la probabilidad de que si lleva gafas, entonces sea mujer? $$
+-   Si escogemos un estudiante al azar ¿Cuál es la probabilidad de que
+    si lleva gafas, entonces sea mujer? $$
     \frac{18}{33}
     $$
 :::
@@ -558,11 +603,13 @@ Hay que distinguir bien entre
 
 *Probabilidad de que sea mujer y lleve gafas.*
 
--   $P(A|B)$: probabilidad de que $\color{red}{\text{si}}$ pasa $B$, $\color{red}{\text{entonces}}$ pase $A$.
+-   $P(A|B)$: probabilidad de que $\color{red}{\text{si}}$ pasa $B$,
+    $\color{red}{\text{entonces}}$ pase $A$.
 
 *Probabilidad de que, si es mujer, lleve gafas.*
 
-Cuando utilizamos probabilidad condicional $P(A|B)$ estamos restringiendo el espacio muestral a $B$.
+Cuando utilizamos probabilidad condicional $P(A|B)$ estamos
+restringiendo el espacio muestral a $B$.
 
 ## Probabilidad condicionada. Propiedades
 
@@ -591,7 +638,8 @@ $$
 ::: exercise
 **Ejercicio**
 
-Escribid el resto de propiedades que cumpliría una probabilidad condicionada al evento $A$.
+Escribid el resto de propiedades que cumpliría una probabilidad
+condicionada al evento $A$.
 :::
 
 ## Ejemplo
@@ -599,12 +647,17 @@ Escribid el resto de propiedades que cumpliría una probabilidad condicionada al
 ::: example
 **Ejemplo**
 
-Un 15% de los adultos son hipertensos, un 25% de los adultos creen que son hipertensos, y un 9% de los adultos son hipertensos y creen que lo son.
+Un 15% de los adultos son hipertensos, un 25% de los adultos creen que
+son hipertensos, y un 9% de los adultos son hipertensos y creen que lo
+son.
 
-Si un adulto cree que es hipertenso, ¿cuál es la probabilidad que lo sea?
+Si un adulto cree que es hipertenso, ¿cuál es la probabilidad que lo
+sea?
 :::
 
+
 ## Ejemplo
+
 
 ::: example-sol
 Sean los sucesos
@@ -613,7 +666,9 @@ Sean los sucesos
 -   $B$: creer ser hipertenso, $P(B)=0.25$,
 :::
 
+
 ::: example-sol
+
 entonces podemos definir el suceso:
 
 -   $A\cap B$: ser hipertenso y creerlo, $P(A\cap B)=0.09$.
@@ -622,7 +677,10 @@ entonces podemos definir el suceso:
 ## Ejemplo
 
 ::: example-sol
-de donde, la probabilidad condicionada de ser hipertenso creyéndonos que lo somos es:
+
+
+de donde, la probabilidad condicionada de ser hipertenso creyéndonos que
+lo somos es:
 
 $$\scriptsize P(A|B)=\dfrac{P(A\cap B)}{P(B)}=\dfrac{0.09}{0.25}=0.36.$$
 :::
@@ -632,7 +690,9 @@ $$\scriptsize P(A|B)=\dfrac{P(A\cap B)}{P(B)}=\dfrac{0.09}{0.25}=0.36.$$
 ::: example
 **Ejemplo**
 
-Un 15% de los adultos son hipertensos, un 25% de los adultos creen que son hipertensos, y un 9% de los adultos son hipertensos y creen que lo son.
+Un 15% de los adultos son hipertensos, un 25% de los adultos creen que
+son hipertensos, y un 9% de los adultos son hipertensos y creen que lo
+son.
 
 Si un adulto es hipertenso, ¿cuál es la probabilidad que crea que lo es?
 :::
@@ -658,7 +718,10 @@ $$
 ::: example
 **Ejemplo**
 
-Un dígito de control de error toma el valor 0 en el 99% de los casos en que hay un error. Si la probabilidad de error en un mensaje es del $0.5\%$. ¿cuál es la probabilidad de que el mensaje sea erróneo y el código de error tenga valor 0?
+Un dígito de control de error toma el valor 0 en el 99% de los casos en
+que hay un error. Si la probabilidad de error en un mensaje es del
+$0.5\%$. ¿cuál es la probabilidad de que el mensaje sea erróneo y el
+código de error tenga valor 0?
 :::
 
 ::: example-sol
@@ -674,10 +737,13 @@ entonces: $$P(A\cap B)=P(B)\cdot P(A|B)=0.005\cdot 0.99=0.00495.$$
 ::: example
 **Ejemplo: SPAM**
 
-Un 50% de correos recibidos en un servidor llevan adjuntos y un 65% son publicidad no deseada (SPAM). Sólo un 15% de estos correos no llevan adjuntos y no son SPAM.
+Un 50% de correos recibidos en un servidor llevan adjuntos y un 65% son
+publicidad no deseada (SPAM). Sólo un 15% de estos correos no llevan
+adjuntos y no son SPAM.
 
 -   ¿Cuál es la probabilidad que un correo lleve adjunto si es SPAM?
--   ¿Cuál es la probabilidad que un correo **no** tenga adjuntos si **no** es SPAM?
+-   ¿Cuál es la probabilidad que un correo **no** tenga adjuntos si
+    **no** es SPAM?
 :::
 
 ## Ejemplos
@@ -685,7 +751,9 @@ Un 50% de correos recibidos en un servidor llevan adjuntos y un 65% son publicid
 ::: example
 **Ejemplo**
 
-Un 50% de correos recibidos en un servidor llevan adjuntos y un 65% son publicidad no deseada (SPAM). Sólo un 15% de estos correos no llevan adjuntos y no son SPAM.
+Un 50% de correos recibidos en un servidor llevan adjuntos y un 65% son
+publicidad no deseada (SPAM). Sólo un 15% de estos correos no llevan
+adjuntos y no son SPAM.
 
 -   ¿Cuál es la probabilidad que un correo lleve adjunto si es SPAM?
 :::
@@ -693,7 +761,8 @@ Un 50% de correos recibidos en un servidor llevan adjuntos y un 65% son publicid
 ::: example-sol
 -   $A$: llevar adjuntos; $P(A)=0.5$,
 -   $S$: SPAM; $P(S)=0.65$,
--   $A^c\cap S^c=(A\cup S)^c$: no llevar adjunto y no ser SPAM; $P((A\cup S)^c)=0.15$,
+-   $A^c\cap S^c=(A\cup S)^c$: no llevar adjunto y no ser SPAM;
+    $P((A\cup S)^c)=0.15$,
 
 $$P(A|S)=\dfrac{P(A\cap S)}{P(S)}=?$$
 :::
@@ -703,7 +772,9 @@ $$P(A|S)=\dfrac{P(A\cap S)}{P(S)}=?$$
 ::: example
 **Ejemplo**
 
-Un 50% de correos recibidos en un servidor llevan adjuntos y un 65% son publicidad no deseada (SPAM). Sólo un 15% de estos correos no llevan adjuntos y no son SPAM.
+Un 50% de correos recibidos en un servidor llevan adjuntos y un 65% son
+publicidad no deseada (SPAM). Sólo un 15% de estos correos no llevan
+adjuntos y no son SPAM.
 
 -   ¿Cuál es la probabilidad que un correo lleve adjunto si es SPAM?
 :::
@@ -723,9 +794,12 @@ $$P(A|S)=\dfrac{P(A\cap S)}{P(S)}=\dfrac{0.3}{0.65}\approx 0.46.$$
 ::: example
 **Ejemplo**
 
-Un 50% de correos recibidos en un servidor llevan adjuntos y un 65% son publicidad no deseada (SPAM). Sólo un 15% de estos correos no llevan adjuntos y no son SPAM.
+Un 50% de correos recibidos en un servidor llevan adjuntos y un 65% son
+publicidad no deseada (SPAM). Sólo un 15% de estos correos no llevan
+adjuntos y no son SPAM.
 
--   ¿Cuál es la probabilidad de que un correo no lleve adjuntos si no es SPAM?
+-   ¿Cuál es la probabilidad de que un correo no lleve adjuntos si no es
+    SPAM?
 :::
 
 ::: example-sol
@@ -751,16 +825,20 @@ $$
 
 <l class="prop">Partición del espacio espacio muestral</l>
 
-Los sucesos $A_1,A_2,\ldots, A_n$ son una **partición** del espacio muestral $\Omega$ de un determinado experimento aleatorio, si cumplen las condiciones siguientes:
+Los sucesos $A_1,A_2,\ldots, A_n$ son una **partición** del espacio
+muestral $\Omega$ de un determinado experimento aleatorio, si cumplen
+las condiciones siguientes:
 
 1.  $A_1\cup A_2\cup\ldots\cup A_n=\Omega$,
-2.  $A_1,A_2,\ldots,A_n$ son incompatibles dos a dos ($A_i\cap A_j=\emptyset$).
+2.  $A_1,A_2,\ldots,A_n$ son incompatibles dos a dos
+    ($A_i\cap A_j=\emptyset$).
 
 ::: prop
 Teorema de la probabilidad total
 :::
 
-Sea $A_1,A_2,\ldots,A_n$ una partición de $\Omega$. Sea $B$ un suceso cualquiera. Entonces
+Sea $A_1,A_2,\ldots,A_n$ una partición de $\Omega$. Sea $B$ un suceso
+cualquiera. Entonces
 
 $$
 \begin{array}{rl}
@@ -774,14 +852,17 @@ $$
 ::: example
 **Ejemplo**
 
-Un dígito de control de error toma el valor 0 en un $99\%$ de los casos en que hay un error y en un $5\%$ de los mensajes sin error. La probabilidad de error en un mensaje es del $0.5\%$.
+Un dígito de control de error toma el valor 0 en un $99\%$ de los casos
+en que hay un error y en un $5\%$ de los mensajes sin error. La
+probabilidad de error en un mensaje es del $0.5\%$.
 
-¿Cuál es la probabilidad de que un mensaje escogido al azar tenga el dígito de control a 0?
+¿Cuál es la probabilidad de que un mensaje escogido al azar tenga el
+dígito de control a 0?
 :::
-
 ## Ejemplo
 
-::: example-sol Sean los sucesos del enunciado:
+::: example-sol
+Sean los sucesos del enunciado:
 
 -   $B$: mensaje con error; $P(B)=0.005$,
 -   $A$: código de error vale 0,
@@ -790,6 +871,7 @@ entonces obtenemos las probabilidades a partir del enunciado:
 
 -   $P(A|B)=0.99,$
 -   $P(A|B^c)= 0.05$
+
 
 ## Ejemplo
 
@@ -802,20 +884,28 @@ P(A)=& P(B)\cdot P(A|B)+P(B^c)\cdot P(A|B^c)\\
 \end{array}
 $$
 
+
 ## Clasificación o Diagnósticos
 
 Consideremos alguna de las siguientes situaciones:
 
--   Un algoritmo detecta si una transacción con tarjeta de crédito es fraude o no.
--   Un algoritmo detecta si tiene o no que mostrar un anuncio en una web.
+-   Un algoritmo detecta si una transacción con tarjeta de crédito es
+    fraude o no.
+-   Un algoritmo detecta si tiene o no que mostrar un anuncio en una
+    web.
 -   Un prueba de embarazo.
 -   Una prueba médica para una enfermedad concreta.
 
-Nos ceñiremos a la casuística más elemental el algoritmo de clasificación o la diagnosis solo da dos resultado **Positivo** (sí tienes la enfermedad, sí es un fraude) o **Negativo** (en caso contrario).
+Nos ceñiremos a la casuística más elemental el algoritmo de
+clasificación o la diagnosis solo da dos resultado **Positivo** (sí
+tienes la enfermedad, sí es un fraude) o **Negativo** (en caso
+contrario).
 
 ## Clasificación o Diagnósticos
 
-En todas estas situaciones podemos calcular lo que se llama **matriz de confusión** que representa todas las situaciones posibles. En el caso de estudiar una condición de tipo binario,
+En todas estas situaciones podemos calcular lo que se llama **matriz de
+confusión** que representa todas las situaciones posibles. En el caso de
+estudiar una condición de tipo binario,
 
 |                    | El Test da Positivo | El Test da Negativo |
 |:-------------------|:-------------------:|:-------------------:|
@@ -824,41 +914,67 @@ En todas estas situaciones podemos calcular lo que se llama **matriz de confusi�
 
 ## Clasificación o Diagnósticos
 
-En general los modelos y algoritmos de clasificación suelen aportar puntuaciones (*scores*) que determinan el grado de pertenencia a una clase, o que miden si dos objetos están en la misma clase.
+En general los modelos y algoritmos de clasificación suelen aportar
+puntuaciones (*scores*) que determinan el grado de pertenencia a una
+clase, o que miden si dos objetos están en la misma clase.
 
 Así el resultado del clasificador o del diagnóstico puede ser:
 
--   **un número real**, en cuyo caso debe clasificador entre cada clase debe determinarse por un valor umbral (*threshold*) por ejemplo para determinar si una persona está estresado podemos dar un *scores* entre 0 y 1 (1 máximo estrés 0 estrés nulo),
--   **un resultado discreto** que indica directamente una de las clases (esto es necesario si es un algoritmo que debe decidir qué hacer con el objeto.
+-   **un número real**, en cuyo caso debe clasificador entre cada clase
+    debe determinarse por un valor umbral (*threshold*) por ejemplo para
+    determinar si una persona está estresado podemos dar un *scores*
+    entre 0 y 1 (1 máximo estrés 0 estrés nulo),
+-   **un resultado discreto** que indica directamente una de las clases
+    (esto es necesario si es un algoritmo que debe decidir qué hacer con
+    el objeto.
+
+
 
 ## Clasificación o Diagnósticos
 
-<l class="definition"> Positivos y Negativos</l> Consideremos un problema de predicción de clases binario, en la que los resultados se etiquetan positivos (P) o negativos (N). Hay cuatro posibles resultados a partir de un clasificador binario como el propuesto.
+<l class="definition"> Positivos y Negativos</l>
+Consideremos un problema de predicción de clases binario, en la que los
+resultados se etiquetan positivos (P) o negativos (N). Hay cuatro
+posibles resultados a partir de un clasificador binario como el
+propuesto.
 
--   Si el resultado de una exploración es P y el valor dado es también P, entonces se conoce como un Verdadero Positivo (VP).
--   Sin embargo si el valor real es N entonces se conoce como un Falso Positivo (FP).
--   De igual modo, tenemos un Verdadero Negativo (VN) cuando tanto la exploración como el valor dado son N.
--   Un Falso Negativo (FN) cuando el resultado de la predicción es N pero el valor real es P.
+-   Si el resultado de una exploración es P y el valor dado es también
+    P, entonces se conoce como un Verdadero Positivo (VP).
+-   Sin embargo si el valor real es N entonces se conoce como un Falso
+    Positivo (FP).
+-   De igual modo, tenemos un Verdadero Negativo (VN) cuando tanto la
+    exploración como el valor dado son N.
+-   Un Falso Negativo (FN) cuando el resultado de la predicción es N
+    pero el valor real es P.
 
 ## Clasificación o Diagnósticos
 
-Un ejemplo aproximado de un problema real es el siguiente: consideremos una prueba diagnóstica que persiga determinar si una persona tiene una cierta enfermedad.
+Un ejemplo aproximado de un problema real es el siguiente: consideremos
+una prueba diagnóstica que persiga determinar si una persona tiene una
+cierta enfermedad.
 
--   Un falso positivo en este caso ocurre cuando la prueba predice que el resultado es positivo, cuando la persona no tiene realmente la enfermedad.
--   Un falso negativo, por el contrario, ocurre cuando el resultado de la prueba es negativo, sugiriendo que no tiene la enfermedad cuando realmente sí la tiene.
+-   Un falso positivo en este caso ocurre cuando la prueba predice que
+    el resultado es positivo, cuando la persona no tiene realmente la
+    enfermedad.
+-   Un falso negativo, por el contrario, ocurre cuando el resultado de
+    la prueba es negativo, sugiriendo que no tiene la enfermedad cuando
+    realmente sí la tiene.
 
 ## Clasificación o Diagnósticos
 
-En un diagnósticos de una cierta condición (por ejemplo, test embarazo, test de enfermedad), tenemos dos tipos de sucesos:
+En un diagnósticos de una cierta condición (por ejemplo, test embarazo,
+test de enfermedad), tenemos dos tipos de sucesos:
 
 -   $T$: el test da positivo,
 -   $M$: el sujeto satisface la condición.
 
 <l class="definition"> Falsos Positivos y Falsos Negativos</l>
 
--   **Falsos positivos** $T\cap M^c$: El test da positivo, pero la condición no se da,
+-   **Falsos positivos** $T\cap M^c$: El test da positivo, pero la
+    condición no se da,
 -   **Coeficiente de falsos positivos** $P(T|M^c)$,
--   **Falsos negativos** $T^c\cap M$: El test da negativo, pero la condición sí que se da,
+-   **Falsos negativos** $T^c\cap M$: El test da negativo, pero la
+    condición sí que se da,
 -   **Coeficiente de falsos negativos**: $P(T^c|M)$.
 
 ## Clasificación o Diagnósticos
@@ -866,9 +982,13 @@ En un diagnósticos de una cierta condición (por ejemplo, test embarazo, test d
 ::: example
 **Ejemplo**
 
-Un test diseñado para diagnosticar una determinada enfermedad tiene un coeficiente de falsos negativos de 0.06, y un coeficiente de falsos positivos de 0.04. En un estudio masivo se observa que un 15% de la población da positivo al test.
+Un test diseñado para diagnosticar una determinada enfermedad tiene un
+coeficiente de falsos negativos de 0.06, y un coeficiente de falsos
+positivos de 0.04. En un estudio masivo se observa que un 15% de la
+población da positivo al test.
 
-¿Cuál es la probabilidad que una persona escogida aleatoriamente tenga esta enfermedad?
+¿Cuál es la probabilidad que una persona escogida aleatoriamente tenga
+esta enfermedad?
 :::
 
 ::: example-sol
@@ -935,7 +1055,8 @@ $$P(A|B) =\dfrac{P(A\cap B)}{P(B)}=\cdots$$
 
 <l class="definition"> Teorema de Bayes </l>
 
-Sea $A_1,A_2,\ldots,A_n$ una partición de $\Omega$. Sea $B$ un suceso tal que $P(B)>0$. entonces(para cualquier $i=1,2,\ldots,n$):
+Sea $A_1,A_2,\ldots,A_n$ una partición de $\Omega$. Sea $B$ un suceso
+tal que $P(B)>0$. entonces(para cualquier $i=1,2,\ldots,n$):
 
 $$
 \begin{array}{rl}
@@ -959,7 +1080,11 @@ $$P(A_i|B) =\dfrac{P(A_i\cap B)}{P(B)}=\cdots$$
 ::: example
 **Ejemplo**
 
-Un test para detección de VIH da positivo un 99% de los casos en los que está presente y en un 5% de los casos en los que el virus está ausente. En una población con un $0.5\%$ de infectados por VIH, ¿cuál es la probabilidad que un individuo que haya dado positivo en el test esté infectado?
+Un test para detección de VIH da positivo un 99% de los casos en los que
+está presente y en un 5% de los casos en los que el virus está ausente.
+En una población con un $0.5\%$ de infectados por VIH, ¿cuál es la
+probabilidad que un individuo que haya dado positivo en el test esté
+infectado?
 :::
 
 ::: example-sol
@@ -980,7 +1105,11 @@ $$
 ::: example
 **Ejemplo**
 
-Un test para detección de VIH da positivo un 99% de los casos en los que está presente y en un 5% de los casos en los que el virus está ausente. En una población con un $0.5\%$ de infectados por VIH, ¿cuál es la probabilidad de que un individuo que haya dado **negativo** en el test **no** esté infectado?
+Un test para detección de VIH da positivo un 99% de los casos en los que
+está presente y en un 5% de los casos en los que el virus está ausente.
+En una población con un $0.5\%$ de infectados por VIH, ¿cuál es la
+probabilidad de que un individuo que haya dado **negativo** en el test
+**no** esté infectado?
 :::
 
 ::: example-sol
@@ -1001,13 +1130,20 @@ $$
 ::: exercise
 **Ejercicio**
 
-Se ha observado que los cientes de una empresa de ventas por internet son de tres tipos, A, B y C, disjuntos dos a dos. La probabilidad que ser de cualquiera de cada uno de los tipos es $1/3$, pero la probabilidad de compra de cada tipo es diferente: si es de tipo A compra un 50% de las veces, si de tipo B, un 75% de las veces, y de tipo C, un 60%.
+Se ha observado que los cientes de una empresa de ventas por internet
+son de tres tipos, A, B y C, disjuntos dos a dos. La probabilidad que
+ser de cualquiera de cada uno de los tipos es $1/3$, pero la
+probabilidad de compra de cada tipo es diferente: si es de tipo A compra
+un 50% de las veces, si de tipo B, un 75% de las veces, y de tipo C, un
+60%.
 
-Supongamos que llega un cliente ¿cuál es la probabilidad de que si ha comprado sea del tipo B?
+Supongamos que llega un cliente ¿cuál es la probabilidad de que si ha
+comprado sea del tipo B?
 :::
 
 ::: example-sol
--   Los sucesos del ejercicio son $A$: el cliente es de tipo A, $B$: el cliente es de tipo B, $C$: el cliente es de tipo C y
+-   Los sucesos del ejercicio son $A$: el cliente es de tipo A, $B$: el
+    cliente es de tipo B, $C$: el cliente es de tipo C y
 
 $$P(A)=P(B)=P(C)=1/3.$$
 
@@ -1023,11 +1159,18 @@ $$P(B|E)\!=\!\dfrac{P(E|B)\cdot P(B)}{P(E|A)\!\cdot\! P(A)\!+\!P(E|B)\!\cdot\! P
 ::: exercise
 **Ejercicio**
 
-Un test de detección precoz de abandono de clientes de una empresa de telefonía da positivo el 97.5% de las ocasiones en las que, posteriormente, el cliente se da de baja, y un 12% de las veces en que no se dio de baja. La probabilidad que un cliente escogido al azar se dé de baja es de un 2%.
+Un test de detección precoz de abandono de clientes de una empresa de
+telefonía da positivo el 97.5% de las ocasiones en las que,
+posteriormente, el cliente se da de baja, y un 12% de las veces en que
+no se dio de baja. La probabilidad que un cliente escogido al azar se dé
+de baja es de un 2%.
 
--   ¿Cuál es la probabilidad que un individuo escogido al azar de positivo en el test?
--   ¿Cuál es la probabilidad que un individuo escogido al azar se de de baja y dé positivo en el test?
--   ¿Cuál es la probabilidad que un individuo que dé negativo en el test se dé de baja?
+-   ¿Cuál es la probabilidad que un individuo escogido al azar de
+    positivo en el test?
+-   ¿Cuál es la probabilidad que un individuo escogido al azar se de de
+    baja y dé positivo en el test?
+-   ¿Cuál es la probabilidad que un individuo que dé negativo en el test
+    se dé de baja?
 :::
 
 ::: example-sol
@@ -1043,7 +1186,8 @@ Definimos los sucesos y datos del ejercicio:
 ::: exercise-sol
 $$P(B)=0.02, P(T|B)=0.975, P(T|B^c)=0.12.$$
 
--   ¿Cuál es la probabilidad que un individuo escogido al azar de positivo en el test?
+-   ¿Cuál es la probabilidad que un individuo escogido al azar de
+    positivo en el test?
 
 $$
 \begin{array}{rl}
@@ -1052,7 +1196,8 @@ P(T) = & P(B)\cdot P(T|B)+P(B^c)\cdot P(T|B^c)\\[1ex]
 \end{array}
 $$
 
--   ¿Cuál es la probabilidad que un individuo escogido al azar se de de baja y dé positivo en el test?
+-   ¿Cuál es la probabilidad que un individuo escogido al azar se de de
+    baja y dé positivo en el test?
 
 $$P(B\cap T)= P(B)\cdot P(T|B)=0.02\cdot 0.975=0.0195.$$
 :::
@@ -1062,7 +1207,8 @@ $$P(B\cap T)= P(B)\cdot P(T|B)=0.02\cdot 0.975=0.0195.$$
 ::: exercise-sol
 $$P(B)=0.02, P(T|B)=0.975, P(T|B^c)=0.12.$$
 
--   ¿Cuál es la probabilidad que un individuo que dé negativo en el test se dé de baja?
+-   ¿Cuál es la probabilidad que un individuo que dé negativo en el test
+    se dé de baja?
 
 $$
 \begin{array}{rl}
@@ -1077,6 +1223,7 @@ $$
     $$
 
 donde $P(T^c|B)=1-P(T|B)=0.025$ y $P(T^c|B^c)=1-P(T|B^c)=0.88.$
+
 :::
 
 # Independencia de sucesos
@@ -1085,9 +1232,11 @@ donde $P(T^c|B)=1-P(T|B)=0.025$ y $P(T^c|B^c)=1-P(T|B^c)=0.88.$
 
 <l class="definition"> Sucesos Independientes </l>
 
-Diremos que los sucesos $A$ y $B$ son **independientes** si $P(A\cap B)=P(A)\cdot P(B)$.
+Diremos que los sucesos $A$ y $B$ son **independientes** si
+$P(A\cap B)=P(A)\cdot P(B)$.
 
-$A_1,\ldots, A_n$ son sucesos **independientes** cuando, para toda subfamilia $A_{i_1},\ldots,A_{i_k}$, $$
+$A_1,\ldots, A_n$ son sucesos **independientes** cuando, para toda
+subfamilia $A_{i_1},\ldots,A_{i_k}$, $$
 P(A_{i_1}\cap \cdots\cap A_{i_k})=P(A_{i_1})\cdots P(A_{i_k}).
 $$
 
@@ -1095,7 +1244,8 @@ $$
 
 <l class="prop"> Proposición </l>
 
-Dados dos sucesos $A$ y $B$ con $P(A),P(B)>0$, las siguientes afirmaciones son equivalentes:
+Dados dos sucesos $A$ y $B$ con $P(A),P(B)>0$, las siguientes
+afirmaciones son equivalentes:
 
 1.  $A$ y $B$ son independientes.
 2.  $P(A|B)=P(A)$.
@@ -1117,7 +1267,10 @@ Las siguientes afirmaciones son equivalentes:
 ::: example
 **Ejemplo**
 
-En la web de viajes WEBTravel, el 55% de los clientes compra billete de avión, el $20\%$ alojamiento en hotel, y el $60\%$ billete de avión o alojamiento en hotel. ¿Son los sucesos comprar billete de avión y comprar alojamiento en hotel independientes?
+En la web de viajes WEBTravel, el 55% de los clientes compra billete de
+avión, el $20\%$ alojamiento en hotel, y el $60\%$ billete de avión o
+alojamiento en hotel. ¿Son los sucesos comprar billete de avión y
+comprar alojamiento en hotel independientes?
 :::
 
 ::: example-sol
@@ -1140,7 +1293,10 @@ Concluimos que son dependientes, ya que $P(A\cap B)\neq P(A)\cdot P(B)$.
 
 1.  Dos sucesos $A$ y $B$ disjuntos, ¿son necesariamente independientes?
 2.  Dos sucesos $A$ y $B$ independientes, ¿son necesariamente disjuntos?
-3.  $\emptyset$ y un suceso cualquiera $A$, ¿son necesariamente independientes?
-4.  $\Omega$ y un suceso cualquiera $A$, ¿son necesariamente independientes?
-5.  ¿Qué condiciones se tienen que dar para que un suceso $A$ sea independiente de si mismo?
+3.  $\emptyset$ y un suceso cualquiera $A$, ¿son necesariamente
+    independientes?
+4.  $\Omega$ y un suceso cualquiera $A$, ¿son necesariamente
+    independientes?
+5.  ¿Qué condiciones se tienen que dar para que un suceso $A$ sea
+    independiente de si mismo?
 :::
