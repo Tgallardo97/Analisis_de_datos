@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE,cache=TRUE)
 options(scipen=999)
 ```
 
-# Ejercicios de Combinatoria 1 con soluciones
+# Ejercicios de Combinatoria  con soluciones
 
 Breves soluciones de los problemas
 

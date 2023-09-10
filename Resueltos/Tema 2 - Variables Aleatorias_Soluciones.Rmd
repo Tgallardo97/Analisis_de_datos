@@ -1,7 +1,7 @@
 ---
 title: "Ejercicios Tema 2 - Variables aleatorias"
-author: "Estadística"
-date: "19-09-2022"
+author: "Variables aleatorias"
+date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
   pdf_document: 
     toc: yes
