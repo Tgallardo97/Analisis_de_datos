@@ -3,15 +3,16 @@ title: "Probabilidad de  éxito en dos configuraciones de un motor."
 author: ''
 date: "22-09-2022"
 output:
-  html_document:
-    toc: yes
-    df_print: paged
   word_document:
     toc: yes
   pdf_document:
     toc: yes
-tocolor: blue
-linkcolor: red
+  html_document:
+    toc: yes
+    df_print: paged
+citecolor: blue
+toccolor: red
+urlcolor: blue
 ---
 
 ```{r setup, include=FALSE}

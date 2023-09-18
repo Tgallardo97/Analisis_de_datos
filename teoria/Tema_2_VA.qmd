@@ -495,10 +495,9 @@ F_{X}(3.5) & = & P(X\leq 3.5)=  P(\{X=1\}\cup\{X=2\}\cup \{X=3\})\\
 o de otra forma
 
 
-\begin{eqnarray*}
-F_{X}(3.5)&=&\sum_{x\leq 3.5} P_X(x)=\sum_{x=1}^3 P(X=x)\\&=&\sum_{x=1}^3 \frac16= 3 \cdot
+$$F_{X}(3.5)=\sum_{x\leq 3.5} P_X(x)=\sum_{x=1}^3 P(X=x)=\sum_{x=1}^3 \frac16= 3 \cdot
    \frac16=\frac12.
-\end{eqnarray*}
+$$
 
 
 </div>
@@ -1003,7 +1002,7 @@ $$P(X\leq x)=\frac{C.F.}{C.P.}=\frac{x-0}{1-0}=x.$$
 
 ## Gráfica de la función de distribución uniforme
 
-```{r figUNIF, fig.align='center',out.width="50%"}
+```{r figUNIF, fig.align='center',out.width="45%"}
 curve(punif(x,0,1),xlim=c(-1,2),col="blue",
       main="Función de distribución de una v.a. \n
       uniforme en el intervalo unidad.")

@@ -662,6 +662,7 @@ Un dígito de control de error toma el valor 0 en el 99% de los casos en que hay
 :::
 
 ::: example-sol
+
 -   $B$: mensaje con error; $P(B)=0.005$,
 -   $A$: código de error vale 0,
 -   $P(A|B)=0.99$,
@@ -781,7 +782,9 @@ Un dígito de control de error toma el valor 0 en un $99\%$ de los casos en que 
 
 ## Ejemplo
 
-::: example-sol Sean los sucesos del enunciado:
+::: example-sol 
+
+Sean los sucesos del enunciado:
 
 -   $B$: mensaje con error; $P(B)=0.005$,
 -   $A$: código de error vale 0,
@@ -790,6 +793,7 @@ entonces obtenemos las probabilidades a partir del enunciado:
 
 -   $P(A|B)=0.99,$
 -   $P(A|B^c)= 0.05$
+:::
 
 ## Ejemplo
 

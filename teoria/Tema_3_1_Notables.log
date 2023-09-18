@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.9)  9 SEP 2023 18:47
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.9)  13 SEP 2023 18:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1470,7 +1470,7 @@ Overfull \vbox (1.04283pt too high) detected at line 957
 File: Tema_3_1_Notables_files/figure-beamer/unnamed-chunk-9-1.pdf Graphic file (type pdf)
 <use Tema_3_1_Notables_files/figure-beamer/unnamed-chunk-9-1.pdf>
 
-Overfull \vbox (34.33565pt too high) detected at line 971
+Overfull \vbox (4.75175pt too high) detected at line 971
  []
 
 [35
@@ -1596,25 +1596,23 @@ Overfull \vbox (12.8813pt too high) detected at line 1472
 
 ] [64
 
-]
-Overfull \hbox (25.01582pt too wide) in alignment at lines 1562--1562
- [][][] []
- []
-
-[65
+] [65
 
 ] [66
 
 ]
-Overfull \vbox (90.95851pt too high) detected at line 1615
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 1615.
+
+
+Overfull \vbox (100.45851pt too high) detected at line 1615
  []
 
 [67
 
 ]
-Overfull \hbox (61.40627pt too wide) detected at line 1635
-[]
- []
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 1635.
 
 [68
 
@@ -1664,7 +1662,7 @@ Overfull \vbox (23.24284pt too high) detected at line 1856
 File: Tema_3_1_Notables_files/figure-beamer/graficos22-1.pdf Graphic file (type pdf)
 <use Tema_3_1_Notables_files/figure-beamer/graficos22-1.pdf>
 
-Overfull \vbox (14.1265pt too high) detected at line 1867
+Overfull \vbox (39.42537pt too high) detected at line 1867
  []
 
 [79
@@ -1689,4 +1687,241 @@ File: Tema_3_1_Notables_files/figure-beamer/py_geom_funciones1-3.pdf Graphic fil
 <use Tema_3_1_Notables_files/figure-beamer/py_geom_funciones1-3.pdf>
 File: Tema_3_1_Notables_files/figure-beamer/py_geom_funciones2-5.pdf Graphic file (type pdf)
 <use Tema_3_1_Notables_files/figure-beamer/py_geom_funciones2-5.pdf>
-File: Tema_3_1_Notables_files/figure-beamer/py_geom_funciones3-7.pdf Graphic file (typ
+File: Tema_3_1_Notables_files/figure-beamer/py_geom_funciones3-7.pdf Graphic file (type pdf)
+<use Tema_3_1_Notables_files/figure-beamer/py_geom_funciones3-7.pdf>
+File: Tema_3_1_Notables_files/figure-beamer/py_random_binom-9.pdf Graphic file (type pdf)
+<use Tema_3_1_Notables_files/figure-beamer/py_random_binom-9.pdf>
+)
+Overfull \vbox (853.30695pt too high) detected at line 1969
+ []
+
+[81
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb
+File: Tema_3_1_Notables_files/figure-beamer/unnamed-chunk-20-11.pdf Graphic file (type pdf)
+<use Tema_3_1_Notables_files/figure-beamer/unnamed-chunk-20-11.pdf>
+)
+Overfull \vbox (75.12245pt too high) detected at line 1992
+ []
+
+[82
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb
+File: Tema_3_1_Notables_files/figure-beamer/py_mean_var_stats-13.pdf Graphic file (type pdf)
+<use Tema_3_1_Notables_files/figure-beamer/py_mean_var_stats-13.pdf>
+)
+Overfull \vbox (56.52245pt too high) detected at line 2013
+ []
+
+[83
+
+] [84
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb)
+Overfull \vbox (90.43289pt too high) detected at line 2051
+ []
+
+[85
+
+]
+File: Tema_3_1_Notables_files/figure-beamer/unnamed-chunk-21-15.pdf Graphic file (type pdf)
+<use Tema_3_1_Notables_files/figure-beamer/unnamed-chunk-21-15.pdf>
+[86
+
+] [87
+
+] [88
+
+] [89
+
+]
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 2119.
+
+
+LaTeX Font Warning: Command \small invalid in math mode on input line 2119.
+
+[90
+
+] [91
+
+] [92
+
+]
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 2156.
+
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 2156.
+
+[93
+
+] [94
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb) [95
+
+] [96
+
+] [97
+
+]
+Overfull \vbox (5.301pt too high) detected at line 2246
+ []
+
+[98
+
+] [99
+
+] [100
+
+] [101
+
+] [102
+
+] [103
+
+] [104
+
+]
+Overfull \hbox (25.1194pt too wide) detected at line 2388
+[]
+ []
+
+[105
+
+]
+Overfull \vbox (13.11131pt too high) detected at line 2413
+ []
+
+[106
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb) [107
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb) [108
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb) [109
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb)
+Overfull \vbox (17.90973pt too high) detected at line 2539
+ []
+
+[110
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb) [111
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb) [112
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb)
+Overfull \vbox (1.04283pt too high) detected at line 2611
+ []
+
+[113
+
+]
+File: Tema_3_1_Notables_files/figure-beamer/unnamed-chunk-32-1.pdf Graphic file (type pdf)
+<use Tema_3_1_Notables_files/figure-beamer/unnamed-chunk-32-1.pdf>
+
+Overfull \vbox (14.1265pt too high) detected at line 2622
+ []
+
+[114
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb) [115
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb)
+Overfull \vbox (90.43289pt too high) detected at line 2667
+ []
+
+[116
+
+]
+File: Tema_3_1_Notables_files/figure-beamer/negativa_py_show-1.pdf Graphic file (type pdf)
+<use Tema_3_1_Notables_files/figure-beamer/negativa_py_show-1.pdf>
+[117
+
+] [118
+
+] [119
+
+] [120
+
+] [121
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb
+
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 9.
+
+)
+Overfull \vbox (5.88164pt too high) detected at line 2801
+ []
+
+[122
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb) [123
+
+] [124
+
+]
+\openout4 = `Tema_3_1_Notables.vrb'.
+
+(./Tema_3_1_Notables.vrb)
+! Extra }, or forgotten \endgroup.
+\endbeamer@frameslide ...amer@framepauses}\egroup 
+                                                  \ifx \beamer@frametitle \@...
+l.2883 \end{frame}
+                   
+Here is how much of TeX's memory you used:
+ 39782 strings out of 477589
+ 846131 string characters out of 5816680
+ 1937432 words of memory out of 5000000
+ 60194 multiletter control sequences out of 15000+600000
+ 567460 words of font info for 112 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 101i,24n,120p,538b,1114s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on Tema_3_1_Notables.pdf (124 pages).

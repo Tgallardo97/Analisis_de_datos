@@ -186,7 +186,7 @@ par(mfrow=c(1,1))
 
 ## Distribución Bernoulli. Ejemplo
 
-```{r ber_plot_1, fig.align='center',echo=FALSE}
+```{r ber_plot_1, fig.align='center',echo=FALSE,out.fig="80%"}
 par(mfrow=c(1,2))
 plot(x=c(0,1),y=dbinom(c(0,1),size=1,prob=0.25),
      ylim=c(0,1),xlim=c(-1,2),xlab="x",
@@ -497,7 +497,7 @@ par(mfrow=c(1,1))
 El siguiente código de R dibuja las función de probabilidad y la de distribución de una  $B(n=10,p=0.25)$
 
 
-```{r fig.align='center',echo=FALSE,out.width="65%"}
+```{r fig.align='center',echo=FALSE,out.width = "55%"}
 par(mfrow=c(1,2))
 aux=rep(0,22)
 aux[seq(2,22,2)]=dbinom(c(0:10),size=10,prob=0.25)
@@ -600,7 +600,7 @@ Supongamos que repetimos este proceso $n=10$ reponiendo en cada ocasión la bola
 
 Consideremos la variable aleatoria $X$ como el número de bolas rojas extraídas (con reposición) en $n=10$ repeticiones del mismo experimento de Bernoulli.
 
-Bajo estas condiciones repetimos $n=10$ veces el mismo experimento de Bernouilli con probabilidad de éxito (sacar bola roja)
+Bajo estas condiciones repetimos $n=10$ veces el mismo experimento de Bernoulli con probabilidad de éxito (sacar bola roja)
 $$P(Roja)=P(Éxito)=p=\frac{40}{100}=0.4.$$
 
 Así que la variable $X$ que es el número de bolas rojas extraídas de la urna (con reposición) en $n=10$ ocasiones sigue una ley binomial  $B(n=10,p=0.4).$
@@ -1033,11 +1033,14 @@ P(X>k)=1-P(X\leq k)=1-\left(1-(1-p)^{k+1}\right)=(1-p)^{k+1},
 $$
 y el lado de izquierdo es
 
-\begin{eqnarray*} 
+\scriptsize{
+\begin{eqnarray*}
 P\left(X> k+j\big| X\geq j\right)&=&\frac{P\left(\{X> k+j\}\cap \{X\geq j\} \right)}{P\left(X\geq j\right)}=
 \frac{P\left(X>k+j \right)}{P\left(X\geq j \right)} = \frac{1-P(X\leq k+j)}{1-P(X\leq j-1)}\\
 &=&  \frac{1-(1-(1-p)^{k+j+1})}{1-(1-(1-p)^{j-1+1})} =\frac{(1-p)^{k+j+1}}{(1-p)^{j}} = (1-p)^{k+1},
 \end{eqnarray*}
+}
+\normalsize
 
 lo que demuestra  la igualdad.
 </div>
@@ -1089,8 +1092,9 @@ $$
 de donde operando en cada lado de la igualdad obtenemos la recurrencia
 
 $$
-[1-P(X\leq k+1)]-[1-P(X\leq k+2)]=(1-p)\cdot [P(X>k)-P(X>k+1)]
+\scriptsize{[1-P(X\leq k+1)]-[1-P(X\leq k+2)]=(1-p)\cdot [P(X>k)-P(X>k+1)]}
 $$
+## Propiedad de la falta de memoria
 
 Ahora operando 
 $$
@@ -1117,15 +1121,16 @@ $$
 P(X=k+1)=(1-p)\cdot P(X=k)
 $$
 Utilizando la recurrencia anterior, podemos calcular todas las probabilidades $P(X=k)$ a partir de la $P(X=0)=p$: 
-
 $$
+\scriptsize{
 \begin{array}{rl}
 P(X=0)&= p,\\
 P(X=1)&=P(X=0+1)= (1-p)\cdot P(X=0) =(1-p)\cdot  p,\\
 P(X=2)&=P(X=1+1)= (1-p)\cdot P(X=1)=(1-p)\cdot (1-p)\cdot p=(1-p)^2\cdot p,\\
- \vdots& \vdots \\
+ \vdots &    \vdots \\
 P(X=k)&=P(X=(k-1)+1)= (1-p)\cdot P(X=k-1)=(1-p)\cdot (1-p)^{k-1}\cdot p=(1-p)^{k}\cdot p,
 \end{array}
+}
 $$
 lo que demuestra  el recíproco, es decir, que $X$ es $Geom(p)$.
 </div>
@@ -1331,7 +1336,7 @@ par(mfrow=c(1,1))
 ##  Los gráficos con R
 
 
-```{r graficos22, fig.align='center',echo=FALSE}
+```{r graficos22, fig.align='center',echo=FALSE,out.width="80%"}
   par(mfrow=c(1,2))
   p=0.25
   n=30
@@ -2128,7 +2133,7 @@ $$
 Nos piden
 
 $$
-P(X=150)= {152\choose 2} \cdot 0.999^{150}\cdot 0.001^3
+\scriptsize{P(X=150)= {152\choose 2} \cdot 0.999^{150}\cdot 0.001^3.}
 $$
 
 Lo calcularemos operando  con R
@@ -2136,8 +2141,6 @@ Lo calcularemos operando  con R
 ```{r}
 choose(152,2)*0.999^150*0.001^3
 ```
-
-con la función de R
 
 ```{r}
 dnbinom(150,size=3,p=0.001)
@@ -2150,13 +2153,11 @@ dnbinom(150,size=3,p=0.001)
 
 **Solución 3.** ¿Cuál es la probabilidad de fallar  150 veces antes de acceder en el sistema?
 
-Nos piden
+Nos piden, lo resolveremos con python
 
 $$
 P(X=150)= {152\choose 2} \cdot 0.999^{150}\cdot 0.001^3
 $$
-
-Pero también lo podemos hacer con python 
 
 ```{python}
 from  scipy.special import binom
@@ -2205,6 +2206,7 @@ Con python
 nbinom.cdf(150,n=3,p=0.001)
 ```
 
+## Solución  ejemplo  $BN(n,p)$ 
 
 El valor pedido será pues:
 $$
@@ -2718,7 +2720,7 @@ par(mfrow=c(1,1))
 
 ## Gráficos  de la distribución Poisson con R
 
-```{r graficosPOISON, fig.align='center',echo=FALSE}
+```{r graficosPOISON, fig.align='center',echo=FALSE,out.width="80%"}
 lambda=20
 par(mfrow=c(1,2))
 n=qpois(0.99,lambda=lambda)
@@ -2739,9 +2741,6 @@ par(mfrow=c(1,1))
 
 
 
-```{r  pofrafico11,echo = FALSE,eval=FALSE}
-
-```
 
 
 ## Cálculos con python

@@ -1,30 +1,32 @@
 \frametitle{Solución ejemplo \(BN(n,p)\)}
-\protect\hypertarget{soluciuxf3n-ejemplo-bnnp-2}{}
-\textbf{Solución 5.} ¿Cuál es el número esperado de fallos antes de
-acceder al sistema? ¿Y su desviación típica?
+\protect\hypertarget{soluciuxf3n-ejemplo-bnnp-1}{}
+Con R
 
-\[E(X)=n\cdot \frac{1-p}{p}=3\cdot \frac{1- 0.001}{0.001}=2997.\]
-\[Var(X)=n\cdot \frac{1-p}{p^2}=3\cdot \frac{1- 0.001^2}{0.001^2}=\ensuremath{2.997\times 10^{6}}.\]
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{pnbinom}\NormalTok{(}\DecValTok{150}\NormalTok{,}\DecValTok{3}\NormalTok{,}\FloatTok{0.001}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+[1] 0.0005232003
+\end{verbatim}
 
 Con python
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{params }\OperatorTok{=}\NormalTok{ nbinom.stats(n}\OperatorTok{=}\DecValTok{3}\NormalTok{,p}\OperatorTok{=}\FloatTok{0.001}\NormalTok{,moments}\OperatorTok{=}\StringTok{\textquotesingle{}mv\textquotesingle{}}\NormalTok{)}
-\BuiltInTok{print}\NormalTok{(}\StringTok{"E(X) = }\SpecialCharTok{\{m\}}\StringTok{"}\NormalTok{.}\BuiltInTok{format}\NormalTok{(m}\OperatorTok{=}\NormalTok{params[}\DecValTok{0}\NormalTok{]))}
+\NormalTok{nbinom.cdf(}\DecValTok{150}\NormalTok{,n}\OperatorTok{=}\DecValTok{3}\NormalTok{,p}\OperatorTok{=}\FloatTok{0.001}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-E(X) = 2997.0
+0.0005232003490824064
 \end{verbatim}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\BuiltInTok{print}\NormalTok{(}\StringTok{"Var(X) = }\SpecialCharTok{\{v\}}\StringTok{"}\NormalTok{.}\BuiltInTok{format}\NormalTok{(v}\OperatorTok{=}\NormalTok{params[}\DecValTok{1}\NormalTok{]))}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-Var(X) = 2997000.0
-\end{verbatim}
+\begin{frame}{Solución ejemplo \(BN(n,p)\)}
+\protect\hypertarget{soluciuxf3n-ejemplo-bnnp-2}{}
+El valor pedido será pues: \[
+P(X>150)=1-P(X\leq 150)=1-\ensuremath{5.2320035\times 10^{-4}}=0.9994768.
+\] Vemos que es muy probable que fallemos más de 150 veces antes de
+entrar en el sistema.
