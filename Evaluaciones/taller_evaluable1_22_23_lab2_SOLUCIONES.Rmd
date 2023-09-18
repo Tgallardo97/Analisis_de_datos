@@ -4,7 +4,7 @@ output:
   pdf_document:
     includes:
       in_header: header_pagenrs_complet_ver3_s__problemas.tex
-    keep_tex: yes
+    keep_tex: no
     toc: no
 ---
 
@@ -108,7 +108,7 @@ knitr::kable(casos,format="latex") %>% kable_styling(position="center", latex_op
 
 
 La probabilidad de obtener un valor e de este dado es 
-$P(\mbox{Salir} k ,\mbox{en el dado})=\frac{1}{12}.$ para $k=1,2,3,\ldots,12.$
+$P(\mbox{Salir } k ,\mbox{ en el dado})=\frac{1}{12}.$ para $k=1,2,3,\ldots,12.$
 
 Nos piden $A_{> 8}=\{9,10,11,12\}$ condicionado a $A_{\mbox{par}}={2,4,6,8,10,12}$.
 
@@ -285,7 +285,7 @@ $P(A\cap (B^c\cap C)=P(A)\cdot P(B^c\cap C)$ y $P(A\cap (B\cap C)=P(A)\cdot P(B\
 
 
 
-Consideremos $\Omega=\{k\in \mathbb{N}| 0< k< 40\}$ un espacio muestral tal que  todos los valores sean equiprobables
+Consideremos $\Omega=\{k\in \mathbb{N}| 1 \leq k\leq 40\}$ un espacio muestral tal que  todos los valores sean equiprobables
 
 Consideremos los siguientes sucesos
 

@@ -3,16 +3,16 @@ title: "Taller función gamma"
 author: "Estadística"
 date: "`r format(Sys.time(), '%d %B, %Y')`"
 output:
-  pdf_document: 
-    toc: yes
-    number_sections: yes
-    keep_tex: yes
   word_document:
     toc: yes
   html_document: 
     toc: yes
     number_sections: yes
     keep_md: yes
+  pdf_document: 
+    toc: yes
+    number_sections: yes
+    keep_tex: yes
 linkcolor: red
 header-includes: \renewcommand{\contentsname}{Contenidos}
 citecolor: blue

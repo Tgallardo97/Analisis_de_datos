@@ -1,7 +1,7 @@
 ---
 title: "Taller función gamma"
 author: "Estadística"
-date: "15 septiembre, 2022"
+date: "11 septiembre, 2023"
 output:
   html_document: 
     toc: yes
@@ -32,7 +32,7 @@ En esta asignatura entrenaremos *cosas* de matemáticas y sus amigos.
 La función Gamma $\Gamma$ tiene diversas definiciones en la matemática.
 La definición que utilizaremos es:
 
-$$ \Gamma(z)= \int_0^{\infty} x^{z-1} \cdot e^{-x}dx, \mbox{ donde } z\in \mathbb{R}.$$
+$$ \Gamma(z)= \int_0^{\infty} x^{z-1} \cdot e^{-x}  dx, \mbox{ donde } z\in \mathbb{R}.$$
 
 
 
@@ -69,10 +69,26 @@ $$\lim_{x\to\infty}\left(-x^z\cdot e^{-x}\right)=0$$
 tenemos que 
 
 $$\Gamma(z+1)= 
-z\cdot \int_0^{\infty} x^{z-1} \cdot e^{-x}\cdot  dx.
+z\cdot \int_0^{\infty} x^{z-1} \cdot e^{-x}\cdot  dx=z\cdot \Gamma(z).
 $$
 
-Por lo que hemos encontrado una fórmula recurrente, en al que si queremos saber $\Gamma(z+1)$ tenemos que  saber que vale $\Gamma(z)$ y utilizar la fórmula anterior. 
+Por lo que hemos encontrado una fórmula recursiva, en al que si queremos saber $\Gamma(z+1)$ tenemos que  saber que vale $\Gamma(z)$ y utilizar la fórmula anterior.
+
+Además 
+
+$$\Gamma(1)=\int_0^{\infty} x^{1-1} \cdot e^{-x}  dx=\int_0^{\infty}  e^{-x}  dx=
+\left[-e^{-x}\right]_{0}^{\infty}=\lim_{x\to \infty} -e^{-x}- \left( -e^{-x}\right)=0-(-1)=1.$$
+
+
+Por lo tanto $si $n\in\mathbb{N}$
+
+* $\Gamma(1)=1.$
+* $\Gamma(2)=2 \cdot \Gamma(1)=2\cdot 1.$
+* $\Gamma(3)= 3 \cdot\Gamma(2)= 3 \cdot 2 \cdot \Gamma(1)= 3\cdot 2 \cdot 1.$
+* $\ldots$
+* $\Gamma(n)= n \cdot\Gamma(n-1)= n \cdot (n-1) \cdot \Gamma(n-2)=\ldots=n\cdot (n-1)\ldots 2\cdot 1=n!.$
+
+
 
 ## Las fórmulas recursivas
 
@@ -81,7 +97,7 @@ La fórmulas recursivas son las que dependen de un valor anterior al que se calc
 
 
 
-La definición de factorial de un un número natural $n\in\mathbb{N}$,  es ¡¡obviamente!! recursiva
+La definición de factorial de un  número natural $n\in\mathbb{N}$,  es ¡¡obviamente!! recursiva
 
 $$
 \begin{aligned}
@@ -117,6 +133,83 @@ Así tenemos que
 
 
 
+En R la función factorial es `factorial(n)` para un $n\in\mathbb{N}$, mientras que  la función $Gamma$ es `gamma(z)` para un $z\in\mathbb{R}$.
+
+
+
+```r
+factorial(0:10)
+```
+
+```
+##  [1]       1       1       2       6      24     120     720    5040   40320
+## [10]  362880 3628800
+```
+
+```r
+gamma((1:10)+1)
+```
+
+```
+##  [1]       1       2       6      24     120     720    5040   40320  362880
+## [10] 3628800
+```
+
+```r
+factorial(1:10)==gamma((1:10)+1)
+```
+
+```
+##  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+```
+
+```r
+all(factorial(1:10)==gamma((1:10)+1))
+```
+
+```
+## [1] TRUE
+```
+
+```r
+gamma(1/2)
+```
+
+```
+## [1] 1.772454
+```
+
+```r
+sqrt(pi)
+```
+
+```
+## [1] 1.772454
+```
+
+```r
+gamma(1/2)==sqrt(pi)
+```
+
+```
+## [1] FALSE
+```
+
+```r
+dplyr::near(gamma(1/2),sqrt(pi))
+```
+
+```
+## [1] TRUE
+```
+
+```r
+gamma(1/2)-sqrt(pi)
+```
+
+```
+## [1] 2.220446e-16
+```
 
 
 
@@ -124,14 +217,24 @@ Así tenemos que
 # Gráfica función Gamma en los reales
 
 
-
+Así la gráfica de la función gamma pasa por todos los pares $(n,(n-1)!)$ para todo $n \in \mathbb{N}.$
 
 
 ```r
-curve(gamma(x),xlim=c(1,10),col="red",ylab="Gamma(x)",lwd=2,frame.plot=TRUE,main="Función Gamma")
+curve(gamma(x),xlim=c(1,9),col="red",ylab="Gamma(x)",lwd=2,frame.plot=TRUE,main="Función Gamma")
+#axis(2, at = gamma(1:9),labels = gamma(1:9) )
+points(x = 1:9,y=factorial(0:8))
 ```
 
-![](gamma_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
+![](gamma_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+
+```r
+gamma(1:10)
+```
+
+```
+##  [1]      1      1      2      6     24    120    720   5040  40320 362880
+```
 
 
 
