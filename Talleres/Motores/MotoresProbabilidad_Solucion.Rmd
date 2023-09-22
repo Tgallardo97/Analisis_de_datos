@@ -1,15 +1,15 @@
 ---
 title: "Probabilidad de  éxito en dos configuraciones de un motor."
 author: ''
-date: "22-09-2022"
+date: "22-09-2023"
 output:
   word_document:
-    toc: yes
-  pdf_document:
     toc: yes
   html_document:
     toc: yes
     df_print: paged
+  pdf_document:
+    toc: yes
 citecolor: blue
 toccolor: red
 urlcolor: blue
@@ -37,7 +37,7 @@ Indicación: utilizar los esquemas que se dan a continuación para visualizar la
 
 ![Esquemas opción 1 y 2](motoresOpcion1y2.png)
 
-## Solución
+### Solución forma 1
 
 Lo resolveremos de dos maneras, la primera es más elegante y algebraica, la segunda es numérica.
 
@@ -55,7 +55,7 @@ $$OP_2=(A_1\cap A_2)\cup (B_1\cap B_2) \subseteq (A_1\cup B_1)\cap (A_2\cup B_2)
 
 Así que la configuración de la opción 2 tiene siempre la misma (o igual) probabilidad de funcionar que la de la opción 1. Notemos que no hemos utilizado que las probabilidades de funcionamiento de los interruptores sean iguales a $p$ , así que el resultado sería cierto si cada interruptor funciona con una probabilidad distinta, ni tampoco hemos utilizado la independencia.
 
-### Solución 2
+### Solución forma 2
 
 Utilizaremos las mismas notaciones que en la solución 1. Ahora atacaremos el problema calculado la probabilidad de $OP_1$ y $OP_2$
 
